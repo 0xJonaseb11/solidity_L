@@ -1,18 +1,10 @@
 {
-    "contractName": "MyContract",
+    "contractName": "Ownable",
     "abi": [
         {
             "inputs": [],
-            "name": "data",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
+            "stateMutability": "nonpayable",
+            "type": "constructor"
         },
         {
             "inputs": [],
@@ -26,26 +18,13 @@
             ],
             "stateMutability": "view",
             "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_data",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setData",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
         }
     ],
-    "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"data\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_data\",\"type\":\"uint256\"}],\"name\":\"setData\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/jaz/Documents/ACADEMICS/SOLIDITY/ADVANCING/UsingInheritance.sol\":\"MyContract\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/jaz/Documents/ACADEMICS/SOLIDITY/ADVANCING/UsingInheritance.sol\":{\"keccak256\":\"0x31706484b7e0c01f3957b005bff8e8fb6c84f69d1a0fc4af97b2c919cea20968\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://e8819b9ed4c76980632c412bd0c936e3372514acc39978b0f8d4694388b82bd8\",\"dweb:/ipfs/QmYzFnGtb6bXLUpccJsJYSwuNH3fuEc4V8QXyVg3WQrZEs\"]}},\"version\":1}",
-    "bytecode": "608060405234801561001057600080fd5b50600080546001600160a01b03191633179055610163806100326000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80635b4b73a91461004657806373d4a13a1461005b5780638da5cb5b14610077575b600080fd5b610059610054366004610114565b6100a2565b005b61006460015481565b6040519081526020015b60405180910390f35b60005461008a906001600160a01b031681565b6040516001600160a01b03909116815260200161006e565b6000546001600160a01b0316331461010f5760405162461bcd60e51b815260206004820152602660248201527f4f6e6c7920746865206f776e65722063616e2063616c6c20746869732066756e60448201526531ba34b7b71760d11b606482015260840160405180910390fd5b600155565b60006020828403121561012657600080fd5b503591905056fea26469706673582212201cdc73f0d75e972678e083844406d0f81a884c4b4995ea7cfd459a475a44ee3264736f6c63430008130033",
-    "deployedBytecode": "608060405234801561001057600080fd5b50600436106100415760003560e01c80635b4b73a91461004657806373d4a13a1461005b5780638da5cb5b14610077575b600080fd5b610059610054366004610114565b6100a2565b005b61006460015481565b6040519081526020015b60405180910390f35b60005461008a906001600160a01b031681565b6040516001600160a01b03909116815260200161006e565b6000546001600160a01b0316331461010f5760405162461bcd60e51b815260206004820152602660248201527f4f6e6c7920746865206f776e65722063616e2063616c6c20746869732066756e60448201526531ba34b7b71760d11b606482015260840160405180910390fd5b600155565b60006020828403121561012657600080fd5b503591905056fea26469706673582212201cdc73f0d75e972678e083844406d0f81a884c4b4995ea7cfd459a475a44ee3264736f6c63430008130033",
-    "sourceMap": "291:137:3:-:0;;;;;;;;;;;;-1:-1:-1;137:5:3;:18;;-1:-1:-1;;;;;;137:18:3;145:10;137:18;;;291:137;;;;;;",
-    "deployedSourceMap": "291:137:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;351:75;;;;;;:::i;:::-;;:::i;:::-;;328:16;;;;;;;;;345:25:4;;;333:2;318:18;328:16:3;;;;;;;;86:20;;;;;-1:-1:-1;;;;;86:20:3;;;;;;-1:-1:-1;;;;;545:32:4;;;527:51;;515:2;500:18;86:20:3;381:203:4;351:75:3;221:5;;-1:-1:-1;;;;;221:5:3;207:10;:19;199:70;;;;-1:-1:-1;;;199:70:3;;791:2:4;199:70:3;;;773:21:4;830:2;810:18;;;803:30;869:34;849:18;;;842:62;-1:-1:-1;;;920:18:4;;;913:36;966:19;;199:70:3;;;;;;;;407:4:::1;:12:::0;351:75::o;14:180:4:-;73:6;126:2;114:9;105:7;101:23;97:32;94:52;;;142:1;139;132:12;94:52;-1:-1:-1;165:23:4;;14:180;-1:-1:-1;14:180:4:o",
+    "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/jaz/Documents/ACADEMICS/SOLIDITY/ADVANCING/UsingInheritance.sol\":\"Ownable\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/jaz/Documents/ACADEMICS/SOLIDITY/ADVANCING/UsingInheritance.sol\":{\"keccak256\":\"0x31706484b7e0c01f3957b005bff8e8fb6c84f69d1a0fc4af97b2c919cea20968\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://e8819b9ed4c76980632c412bd0c936e3372514acc39978b0f8d4694388b82bd8\",\"dweb:/ipfs/QmYzFnGtb6bXLUpccJsJYSwuNH3fuEc4V8QXyVg3WQrZEs\"]}},\"version\":1}",
+    "bytecode": "6080604052348015600f57600080fd5b50600080546001600160a01b031916331790556091806100306000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80638da5cb5b14602d575b600080fd5b600054603f906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f3fea2646970667358221220dfabc15d0059794517fa0a8d525654b63d3727ba214372a3c5ef57a65fb6b14464736f6c63430008130033",
+    "deployedBytecode": "6080604052348015600f57600080fd5b506004361060285760003560e01c80638da5cb5b14602d575b600080fd5b600054603f906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f3fea2646970667358221220dfabc15d0059794517fa0a8d525654b63d3727ba214372a3c5ef57a65fb6b14464736f6c63430008130033",
+    "sourceMap": "63:226:3:-:0;;;113:49;;;;;;;;;-1:-1:-1;137:5:3;:18;;-1:-1:-1;;;;;;137:18:3;145:10;137:18;;;63:226;;;;;;",
+    "deployedSourceMap": "63:226:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;86:20;;;;;-1:-1:-1;;;;;86:20:3;;;;;;-1:-1:-1;;;;;178:32:4;;;160:51;;148:2;133:18;86:20:3;;;;;;",
     "sourcePath": "/home/jaz/Documents/ACADEMICS/SOLIDITY/ADVANCING/UsingInheritance.sol",
     "compiler": {
         "name": "solc",
@@ -556,20 +535,16 @@
         "src": "38:391:3"
     },
     "functionHashes": {
-        "data()": "73d4a13a",
-        "owner()": "8da5cb5b",
-        "setData(uint256)": "5b4b73a9"
+        "owner()": "8da5cb5b"
     },
     "gasEstimates": {
         "creation": {
-            "codeDepositCost": "71000",
-            "executionCost": "24358",
-            "totalCost": "95358"
+            "codeDepositCost": "29000",
+            "executionCost": "24316",
+            "totalCost": "53316"
         },
         "external": {
-            "data()": "2284",
-            "owner()": "2359",
-            "setData(uint256)": "24442"
+            "owner()": "2303"
         }
     }
 }

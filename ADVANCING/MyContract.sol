@@ -11,9 +11,6 @@ contract MyContract {
     enum State { Waiting, Ready, Active }
     State public state;
 
-
-
-
     function activate() public {
         state = State.Active;
     }
@@ -47,19 +44,42 @@ contract MyContract {
 uint256 public peopleCount = 0;
 mapping (uint => Person) public people;
 
+address owner;
+uint256 openingTime = 1687984697; //we use epoch time
+
+
+modifier onlyWhileOpen() {
+    require( block.timestamp >= openingTime);
+    _;
+}
+modifier onlyOwner() {
+    require(msg.sender == owner);
+    _;
+}
+
 struct Person {
     string _firstName;
     string _lastName;
     uint id; 
 }
+//setting the owner
+constructor() {
+    owner = msg.sender;
+}
 
-function addPerson(string memory _firstName, string memory _lastName) public {
-    peopleCount += 1;
+
+function addPerson(string memory _firstName, string memory _lastName) public onlyOwner onlyWhileOpen {
+    incrementCount();
     people[peopleCount] = Person(_firstName, _lastName, peopleCount);
     //  people.push(Person(_firstName, _lastName)); //same as above
   }
   function incrementCount() internal {
     peopleCount += 1;
   }
+
+  //Sending ether and tokens across wallets
+  
+    
+  
 }
 
