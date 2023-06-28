@@ -1,0 +1,2716 @@
+{
+    "contractName": "Purchase",
+    "abi": [
+        {
+            "inputs": [],
+            "stateMutability": "payable",
+            "type": "constructor"
+        },
+        {
+            "inputs": [],
+            "name": "InvalidState",
+            "type": "error"
+        },
+        {
+            "inputs": [],
+            "name": "OnlyBuyer",
+            "type": "error"
+        },
+        {
+            "inputs": [],
+            "name": "OnlySeller",
+            "type": "error"
+        },
+        {
+            "inputs": [],
+            "name": "ValueNotEven",
+            "type": "error"
+        },
+        {
+            "anonymous": false,
+            "inputs": [],
+            "name": "Aborted",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [],
+            "name": "ItemReceived",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [],
+            "name": "PurchaseConfirmed",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [],
+            "name": "SellerRefunded",
+            "type": "event"
+        },
+        {
+            "inputs": [],
+            "name": "abort",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "buyer",
+            "outputs": [
+                {
+                    "internalType": "address payable",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "confirmPurchase",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "confirmReceived",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "refundSeller",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "seller",
+            "outputs": [
+                {
+                    "internalType": "address payable",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "state",
+            "outputs": [
+                {
+                    "internalType": "enum Purchase.State",
+                    "name": "",
+                    "type": "uint8"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "value",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"payable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"InvalidState\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"OnlyBuyer\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"OnlySeller\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ValueNotEven\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"Aborted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"ItemReceived\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"PurchaseConfirmed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[],\"name\":\"SellerRefunded\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"abort\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"buyer\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"confirmPurchase\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"confirmReceived\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"refundSeller\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"seller\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"state\",\"outputs\":[{\"internalType\":\"enum Purchase.State\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"value\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"errors\":{\"InvalidState()\":[{\"notice\":\"The function cannot be called at the current state.\"}],\"OnlyBuyer()\":[{\"notice\":\"Only the buyer can call this function.\"}],\"OnlySeller()\":[{\"notice\":\"Only the seller can call this function.\"}],\"ValueNotEven()\":[{\"notice\":\"The provided value has to be even.\"}]},\"kind\":\"user\",\"methods\":{\"abort()\":{\"notice\":\"Abort the purchase and reclaim the ether. Can only be called by the seller before the contract is locked.\"},\"confirmPurchase()\":{\"notice\":\"Confirm the purchase as buyer. Transaction has to include `2 * value` ether. The ether will be locked until confirmReceived is called.\"},\"confirmReceived()\":{\"notice\":\"Confirm that you (the buyer) received the item. This will release the locked ether.\"},\"refundSeller()\":{\"notice\":\"This function refunds the seller, i.e. pays back the locked funds of the seller.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/jaz/Documents/ACADEMICS/SOLIDITY/PROJECTS/SAFE-REMOTE -PURCHACE/Purchase.sol\":\"Purchase\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/jaz/Documents/ACADEMICS/SOLIDITY/PROJECTS/SAFE-REMOTE -PURCHACE/Purchase.sol\":{\"keccak256\":\"0x58ea3667ddd04e3a3face568d7e07e0994b792afb38931df5180389e6b9c1c57\",\"license\":\"GPL-3.0\",\"urls\":[\"bzz-raw://334b596f056f6e4a1d76745c13a0d82f4c7e6cafa824adc3979050578b94d418\",\"dweb:/ipfs/QmczmMUgnYX9kbdHj2HYNLwenNKdaKUV5Qc5i8RdZr1gmV\"]}},\"version\":1}",
+    "bytecode": "6080604052600180546001600160a01b03191633179055610021600234610056565b60008190553490610033906002610078565b1461005157604051635f1f262160e11b815260040160405180910390fd5b6100a3565b60008261007357634e487b7160e01b600052601260045260246000fd5b500490565b808202811582820484141761009d57634e487b7160e01b600052601160045260246000fd5b92915050565b61056d806100b26000396000f3fe60806040526004361061007b5760003560e01c806373fac6f01161004e57806373fac6f014610118578063c19d93fb1461012d578063c7981b1b1461015b578063d69606971461017057600080fd5b806308551a531461008057806335a063b4146100bd5780633fa4f245146100d45780637150d8ae146100f8575b600080fd5b34801561008c57600080fd5b506001546100a0906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b3480156100c957600080fd5b506100d2610178565b005b3480156100e057600080fd5b506100ea60005481565b6040519081526020016100b4565b34801561010457600080fd5b506002546100a0906001600160a01b031681565b34801561012457600080fd5b506100d261025b565b34801561013957600080fd5b5060025461014e90600160a01b900460ff1681565b6040516100b491906104e4565b34801561016757600080fd5b506100d261033a565b6100d2610429565b6001546001600160a01b031633146101a3576040516342e8fb9360e11b815260040160405180910390fd5b600080600254600160a01b900460ff1660038111156101c4576101c46104ce565b146101e25760405163baf3f0f760e01b815260040160405180910390fd5b6040517f72c874aeff0b183a56e2b79c71b46e1aed4dee5e09862134b8821ba2fddbf8bf90600090a16002805460ff60a01b1916600360a01b1790556001546040516001600160a01b03909116904780156108fc02916000818181858888f19350505050158015610257573d6000803e3d6000fd5b5050565b6002546001600160a01b03163314610286576040516386efbb5560e01b815260040160405180910390fd5b600180600254600160a01b900460ff1660038111156102a7576102a76104ce565b146102c55760405163baf3f0f760e01b815260040160405180910390fd5b6040517fe89152acd703c9d8c7d28829d443260b411454d45394e7995815140c8cbcbcf790600090a160028054600160a11b60ff60a01b19821617909155600080546040516001600160a01b03909316926108fc82150292818181858888f19350505050158015610257573d6000803e3d6000fd5b6001546001600160a01b03163314610365576040516342e8fb9360e11b815260040160405180910390fd5b600280600254600160a01b900460ff166003811115610386576103866104ce565b146103a45760405163baf3f0f760e01b815260040160405180910390fd5b6040517ffda69c32bcfdba840a167777906b173b607eb8b4d8853b97a80d26e613d858db90600090a16002805460ff60a01b1916600360a01b1790556001546000546001600160a01b03909116906108fc9061040190600361050c565b6040518115909202916000818181858888f19350505050158015610257573d6000803e3d6000fd5b600080600254600160a01b900460ff16600381111561044a5761044a6104ce565b146104685760405163baf3f0f760e01b815260040160405180910390fd5b60005461047690600261050c565b34148061048257600080fd5b6040517fd5d55c8a68912e9a110618df8d5e2e83b8d83211c57a8ddd1203df92885dc88190600090a15050600280546001600160a81b0319163360ff60a01b191617600160a01b179055565b634e487b7160e01b600052602160045260246000fd5b602081016004831061050657634e487b7160e01b600052602160045260246000fd5b91905290565b808202811582820484141761053157634e487b7160e01b600052601160045260246000fd5b9291505056fea2646970667358221220121cced638c5001329e26e1569ce04bed652dc128e688d25d656e5d80a239b0664736f6c63430008130033",
+    "deployedBytecode": "60806040526004361061007b5760003560e01c806373fac6f01161004e57806373fac6f014610118578063c19d93fb1461012d578063c7981b1b1461015b578063d69606971461017057600080fd5b806308551a531461008057806335a063b4146100bd5780633fa4f245146100d45780637150d8ae146100f8575b600080fd5b34801561008c57600080fd5b506001546100a0906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b3480156100c957600080fd5b506100d2610178565b005b3480156100e057600080fd5b506100ea60005481565b6040519081526020016100b4565b34801561010457600080fd5b506002546100a0906001600160a01b031681565b34801561012457600080fd5b506100d261025b565b34801561013957600080fd5b5060025461014e90600160a01b900460ff1681565b6040516100b491906104e4565b34801561016757600080fd5b506100d261033a565b6100d2610429565b6001546001600160a01b031633146101a3576040516342e8fb9360e11b815260040160405180910390fd5b600080600254600160a01b900460ff1660038111156101c4576101c46104ce565b146101e25760405163baf3f0f760e01b815260040160405180910390fd5b6040517f72c874aeff0b183a56e2b79c71b46e1aed4dee5e09862134b8821ba2fddbf8bf90600090a16002805460ff60a01b1916600360a01b1790556001546040516001600160a01b03909116904780156108fc02916000818181858888f19350505050158015610257573d6000803e3d6000fd5b5050565b6002546001600160a01b03163314610286576040516386efbb5560e01b815260040160405180910390fd5b600180600254600160a01b900460ff1660038111156102a7576102a76104ce565b146102c55760405163baf3f0f760e01b815260040160405180910390fd5b6040517fe89152acd703c9d8c7d28829d443260b411454d45394e7995815140c8cbcbcf790600090a160028054600160a11b60ff60a01b19821617909155600080546040516001600160a01b03909316926108fc82150292818181858888f19350505050158015610257573d6000803e3d6000fd5b6001546001600160a01b03163314610365576040516342e8fb9360e11b815260040160405180910390fd5b600280600254600160a01b900460ff166003811115610386576103866104ce565b146103a45760405163baf3f0f760e01b815260040160405180910390fd5b6040517ffda69c32bcfdba840a167777906b173b607eb8b4d8853b97a80d26e613d858db90600090a16002805460ff60a01b1916600360a01b1790556001546000546001600160a01b03909116906108fc9061040190600361050c565b6040518115909202916000818181858888f19350505050158015610257573d6000803e3d6000fd5b600080600254600160a01b900460ff16600381111561044a5761044a6104ce565b146104685760405163baf3f0f760e01b815260040160405180910390fd5b60005461047690600261050c565b34148061048257600080fd5b6040517fd5d55c8a68912e9a110618df8d5e2e83b8d83211c57a8ddd1203df92885dc88190600090a15050600280546001600160a81b0319163360ff60a01b191617600160a01b179055565b634e487b7160e01b600052602160045260246000fd5b602081016004831061050657634e487b7160e01b600052602160045260246000fd5b91905290565b808202811582820484141761053157634e487b7160e01b600052601160045260246000fd5b9291505056fea2646970667358221220121cced638c5001329e26e1569ce04bed652dc128e688d25d656e5d80a239b0664736f6c63430008130033",
+    "sourceMap": "60:3290:2:-:0;;;1364:6;:28;;-1:-1:-1;;;;;;1364:28:2;1381:10;1364:28;;;1410:13;1422:1;1410:9;:13;:::i;:::-;1402:5;:21;;;1452:9;;1438;;:1;:9;:::i;:::-;1437:24;1433:63;;1482:14;;-1:-1:-1;;;1482:14:2;;;;;;;;;;;1433:63;60:3290;;14:217:7;54:1;80;70:132;;124:10;119:3;115:20;112:1;105:31;159:4;156:1;149:15;187:4;184:1;177:15;70:132;-1:-1:-1;216:9:7;;14:217::o;236:265::-;309:9;;;340;;357:15;;;351:22;;337:37;327:168;;417:10;412:3;408:20;405:1;398:31;452:4;449:1;442:15;480:4;477:1;470:15;327:168;236:265;;;;:::o;:::-;60:3290:2;;;;;;",
+    "deployedSourceMap": "60:3290:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;107:29;;;;;;;;;;-1:-1:-1;107:29:2;;;;-1:-1:-1;;;;;107:29:2;;;;;;-1:-1:-1;;;;;194:32:7;;;176:51;;164:2;149:18;107:29:2;;;;;;;;1639:376;;;;;;;;;;;;;:::i;:::-;;84:17;;;;;;;;;;;;;;;;;;;384:25:7;;;372:2;357:18;84:17:2;238:177:7;142:28:2;;;;;;;;;;-1:-1:-1;142:28:2;;;;-1:-1:-1;;;;;142:28:2;;;2532:353;;;;;;;;;;;;;:::i;314:18::-;;;;;;;;;;-1:-1:-1;314:18:2;;;;-1:-1:-1;;;314:18:2;;;;;;;;;;;;;:::i;2988:360::-;;;;;;;;;;;;;:::i;2188:238::-;;;:::i;1639:376::-;886:6;;-1:-1:-1;;;;;886:6:2;872:10;:20;868:57;;913:12;;-1:-1:-1;;;913:12:2;;;;;;;;;;;868:57;1708:13:::1;::::0;985:5:::1;::::0;-1:-1:-1;;;985:5:2;::::1;;;:15;::::0;::::1;;;;;;:::i;:::-;;981:54;;1021:14;;-1:-1:-1::0;;;1021:14:2::1;;;;;;;;;;;981:54;1742:9:::2;::::0;::::2;::::0;;;::::2;1761:5;:22:::0;;-1:-1:-1;;;;1761:22:2::2;-1:-1:-1::0;;;1761:22:2::2;::::0;;-1:-1:-1;1970:6:2;:38:::2;::::0;-1:-1:-1;;;;;1970:6:2;;::::2;::::0;1986:21:::2;1970:38:::0;::::2;;;::::0;-1:-1:-1;1970:38:2;-1:-1:-1;1970:38:2;1986:21;1970:6;:38;::::2;;;;;;;;;;;;;::::0;::::2;;;;;;926:1:::1;1639:376::o:0;2532:353::-;775:5;;-1:-1:-1;;;;;775:5:2;761:10;:19;757:55;;801:11;;-1:-1:-1;;;801:11:2;;;;;;;;;;;757:55;2610:12:::1;::::0;985:5:::1;::::0;-1:-1:-1;;;985:5:2;::::1;;;:15;::::0;::::1;;;;;;:::i;:::-;;981:54;;1021:14;;-1:-1:-1::0;;;1021:14:2::1;;;;;;;;;;;981:54;2643:14:::2;::::0;::::2;::::0;;;::::2;2833:13;2825:21:::0;;-1:-1:-1;;;;;;;2825:21:2;::::2;;::::0;;;-1:-1:-1;2872:5:2;;2857:21:::2;::::0;-1:-1:-1;;;;;2857:5:2;;;;:21:::2;::::0;::::2;;::::0;;-1:-1:-1;2857:21:2;2872:5;2857;:21;::::2;;;;;;;;;;;;;::::0;::::2;;;;2988:360:::0;886:6;;-1:-1:-1;;;;;886:6:2;872:10;:20;868:57;;913:12;;-1:-1:-1;;;913:12:2;;;;;;;;;;;868:57;3064:13:::1;::::0;985:5:::1;::::0;-1:-1:-1;;;985:5:2;::::1;;;:15;::::0;::::1;;;;;;:::i;:::-;;981:54;;1021:14;;-1:-1:-1::0;;;1021:14:2::1;;;;;;;;;;;981:54;3098:16:::2;::::0;::::2;::::0;;;::::2;3282:5;:22:::0;;-1:-1:-1;;;;3282:22:2::2;-1:-1:-1::0;;;3282:22:2::2;::::0;;-1:-1:-1;3315:6:2;-1:-1:-1;3335:5:2;-1:-1:-1;;;;;3315:6:2;;::::2;::::0;:26:::2;::::0;3331:9:::2;::::0;3290:14:::2;3331:9;:::i;:::-;3315:26;::::0;;::::2;::::0;;::::2;::::0;::::2;::::0;;;;;;::::2;;;;;;;;;;;;;::::0;::::2;;;;2188:238:::0;2248:13;;985:5;;-1:-1:-1;;;985:5:2;;;;:15;;;;;;;;:::i;:::-;;981:54;;1021:14;;-1:-1:-1;;;1021:14:2;;;;;;;;;;;981:54;2290:5:::1;::::0;2286:9:::1;::::0;:1:::1;:9;:::i;:::-;2272;:24;393:10;385:19;;;::::0;::::1;;2333::::2;::::0;::::2;::::0;;;::::2;-1:-1:-1::0;;2362:5:2::2;:27:::0;;-1:-1:-1;;;;;;2399:20:2;2378:10:::2;-1:-1:-1::0;;;;2399:20:2;;-1:-1:-1;;;2399:20:2::2;::::0;;2188:238::o;420:127:7:-;481:10;476:3;472:20;469:1;462:31;512:4;509:1;502:15;536:4;533:1;526:15;552:337;693:2;678:18;;726:1;715:13;;705:144;;771:10;766:3;762:20;759:1;752:31;806:4;803:1;796:15;834:4;831:1;824:15;705:144;858:25;;;552:337;:::o;894:265::-;967:9;;;998;;1015:15;;;1009:22;;995:37;985:168;;1075:10;1070:3;1066:20;1063:1;1056:31;1110:4;1107:1;1100:15;1138:4;1135:1;1128:15;985:168;894:265;;;;:::o",
+    "sourcePath": "/home/jaz/Documents/ACADEMICS/SOLIDITY/PROJECTS/SAFE-REMOTE -PURCHACE/Purchase.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.19+commit.7dd6d404"
+    },
+    "ast": {
+        "absolutePath": "/home/jaz/Documents/ACADEMICS/SOLIDITY/PROJECTS/SAFE-REMOTE -PURCHACE/Purchase.sol",
+        "exportedSymbols": {
+            "Purchase": [
+                659
+            ]
+        },
+        "id": 660,
+        "license": "GPL-3.0",
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 431,
+                "literals": [
+                    "solidity",
+                    "^",
+                    "0.8",
+                    ".4"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "36:23:2"
+            },
+            {
+                "abstract": false,
+                "baseContracts": [],
+                "canonicalName": "Purchase",
+                "contractDependencies": [],
+                "contractKind": "contract",
+                "fullyImplemented": true,
+                "id": 659,
+                "linearizedBaseContracts": [
+                    659
+                ],
+                "name": "Purchase",
+                "nameLocation": "69:8:2",
+                "nodeType": "ContractDefinition",
+                "nodes": [
+                    {
+                        "constant": false,
+                        "functionSelector": "3fa4f245",
+                        "id": 433,
+                        "mutability": "mutable",
+                        "name": "value",
+                        "nameLocation": "96:5:2",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 659,
+                        "src": "84:17:2",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                        },
+                        "typeName": {
+                            "id": 432,
+                            "name": "uint",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "84:4:2",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "constant": false,
+                        "functionSelector": "08551a53",
+                        "id": 435,
+                        "mutability": "mutable",
+                        "name": "seller",
+                        "nameLocation": "130:6:2",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 659,
+                        "src": "107:29:2",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                        },
+                        "typeName": {
+                            "id": 434,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "107:15:2",
+                            "stateMutability": "payable",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_address_payable",
+                                "typeString": "address payable"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "constant": false,
+                        "functionSelector": "7150d8ae",
+                        "id": 437,
+                        "mutability": "mutable",
+                        "name": "buyer",
+                        "nameLocation": "165:5:2",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 659,
+                        "src": "142:28:2",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                        },
+                        "typeName": {
+                            "id": 436,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "142:15:2",
+                            "stateMutability": "payable",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_address_payable",
+                                "typeString": "address payable"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "canonicalName": "Purchase.State",
+                        "id": 442,
+                        "members": [
+                            {
+                                "id": 438,
+                                "name": "Created",
+                                "nameLocation": "190:7:2",
+                                "nodeType": "EnumValue",
+                                "src": "190:7:2"
+                            },
+                            {
+                                "id": 439,
+                                "name": "Locked",
+                                "nameLocation": "199:6:2",
+                                "nodeType": "EnumValue",
+                                "src": "199:6:2"
+                            },
+                            {
+                                "id": 440,
+                                "name": "Release",
+                                "nameLocation": "207:7:2",
+                                "nodeType": "EnumValue",
+                                "src": "207:7:2"
+                            },
+                            {
+                                "id": 441,
+                                "name": "Inactive",
+                                "nameLocation": "216:8:2",
+                                "nodeType": "EnumValue",
+                                "src": "216:8:2"
+                            }
+                        ],
+                        "name": "State",
+                        "nameLocation": "182:5:2",
+                        "nodeType": "EnumDefinition",
+                        "src": "177:49:2"
+                    },
+                    {
+                        "constant": false,
+                        "functionSelector": "c19d93fb",
+                        "id": 445,
+                        "mutability": "mutable",
+                        "name": "state",
+                        "nameLocation": "327:5:2",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 659,
+                        "src": "314:18:2",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_enum$_State_$442",
+                            "typeString": "enum Purchase.State"
+                        },
+                        "typeName": {
+                            "id": 444,
+                            "nodeType": "UserDefinedTypeName",
+                            "pathNode": {
+                                "id": 443,
+                                "name": "State",
+                                "nameLocations": [
+                                    "314:5:2"
+                                ],
+                                "nodeType": "IdentifierPath",
+                                "referencedDeclaration": 442,
+                                "src": "314:5:2"
+                            },
+                            "referencedDeclaration": 442,
+                            "src": "314:5:2",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_enum$_State_$442",
+                                "typeString": "enum Purchase.State"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "body": {
+                            "id": 454,
+                            "nodeType": "Block",
+                            "src": "375:47:2",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "id": 450,
+                                                "name": "condition_",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 447,
+                                                "src": "393:10:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                }
+                                            ],
+                                            "id": 449,
+                                            "name": "require",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [
+                                                4294967278,
+                                                4294967278
+                                            ],
+                                            "referencedDeclaration": 4294967278,
+                                            "src": "385:7:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                                                "typeString": "function (bool) pure"
+                                            }
+                                        },
+                                        "id": 451,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "nameLocations": [],
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "385:19:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 452,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "385:19:2"
+                                },
+                                {
+                                    "id": 453,
+                                    "nodeType": "PlaceholderStatement",
+                                    "src": "414:1:2"
+                                }
+                            ]
+                        },
+                        "id": 455,
+                        "name": "condition",
+                        "nameLocation": "348:9:2",
+                        "nodeType": "ModifierDefinition",
+                        "parameters": {
+                            "id": 448,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 447,
+                                    "mutability": "mutable",
+                                    "name": "condition_",
+                                    "nameLocation": "363:10:2",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 455,
+                                    "src": "358:15:2",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_bool",
+                                        "typeString": "bool"
+                                    },
+                                    "typeName": {
+                                        "id": 446,
+                                        "name": "bool",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "358:4:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_bool",
+                                            "typeString": "bool"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "357:17:2"
+                        },
+                        "src": "339:83:2",
+                        "virtual": false,
+                        "visibility": "internal"
+                    },
+                    {
+                        "documentation": {
+                            "id": 456,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "428:42:2",
+                            "text": "Only the buyer can call this function."
+                        },
+                        "errorSelector": "86efbb55",
+                        "id": 458,
+                        "name": "OnlyBuyer",
+                        "nameLocation": "481:9:2",
+                        "nodeType": "ErrorDefinition",
+                        "parameters": {
+                            "id": 457,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "490:2:2"
+                        },
+                        "src": "475:18:2"
+                    },
+                    {
+                        "documentation": {
+                            "id": 459,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "498:43:2",
+                            "text": "Only the seller can call this function."
+                        },
+                        "errorSelector": "85d1f726",
+                        "id": 461,
+                        "name": "OnlySeller",
+                        "nameLocation": "552:10:2",
+                        "nodeType": "ErrorDefinition",
+                        "parameters": {
+                            "id": 460,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "562:2:2"
+                        },
+                        "src": "546:19:2"
+                    },
+                    {
+                        "documentation": {
+                            "id": 462,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "570:55:2",
+                            "text": "The function cannot be called at the current state."
+                        },
+                        "errorSelector": "baf3f0f7",
+                        "id": 464,
+                        "name": "InvalidState",
+                        "nameLocation": "636:12:2",
+                        "nodeType": "ErrorDefinition",
+                        "parameters": {
+                            "id": 463,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "648:2:2"
+                        },
+                        "src": "630:21:2"
+                    },
+                    {
+                        "documentation": {
+                            "id": 465,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "656:38:2",
+                            "text": "The provided value has to be even."
+                        },
+                        "errorSelector": "be3e4c42",
+                        "id": 467,
+                        "name": "ValueNotEven",
+                        "nameLocation": "705:12:2",
+                        "nodeType": "ErrorDefinition",
+                        "parameters": {
+                            "id": 466,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "717:2:2"
+                        },
+                        "src": "699:21:2"
+                    },
+                    {
+                        "body": {
+                            "id": 478,
+                            "nodeType": "Block",
+                            "src": "747:83:2",
+                            "statements": [
+                                {
+                                    "condition": {
+                                        "commonType": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        },
+                                        "id": 472,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftExpression": {
+                                            "expression": {
+                                                "id": 469,
+                                                "name": "msg",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 4294967281,
+                                                "src": "761:3:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_magic_message",
+                                                    "typeString": "msg"
+                                                }
+                                            },
+                                            "id": 470,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "memberLocation": "765:6:2",
+                                            "memberName": "sender",
+                                            "nodeType": "MemberAccess",
+                                            "src": "761:10:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            }
+                                        },
+                                        "nodeType": "BinaryOperation",
+                                        "operator": "!=",
+                                        "rightExpression": {
+                                            "id": 471,
+                                            "name": "buyer",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 437,
+                                            "src": "775:5:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address_payable",
+                                                "typeString": "address payable"
+                                            }
+                                        },
+                                        "src": "761:19:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_bool",
+                                            "typeString": "bool"
+                                        }
+                                    },
+                                    "id": 476,
+                                    "nodeType": "IfStatement",
+                                    "src": "757:55:2",
+                                    "trueBody": {
+                                        "errorCall": {
+                                            "arguments": [],
+                                            "expression": {
+                                                "argumentTypes": [],
+                                                "id": 473,
+                                                "name": "OnlyBuyer",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 458,
+                                                "src": "801:9:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                                                    "typeString": "function () pure"
+                                                }
+                                            },
+                                            "id": 474,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "kind": "functionCall",
+                                            "lValueRequested": false,
+                                            "nameLocations": [],
+                                            "names": [],
+                                            "nodeType": "FunctionCall",
+                                            "src": "801:11:2",
+                                            "tryCall": false,
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_tuple$__$",
+                                                "typeString": "tuple()"
+                                            }
+                                        },
+                                        "id": 475,
+                                        "nodeType": "RevertStatement",
+                                        "src": "794:18:2"
+                                    }
+                                },
+                                {
+                                    "id": 477,
+                                    "nodeType": "PlaceholderStatement",
+                                    "src": "822:1:2"
+                                }
+                            ]
+                        },
+                        "id": 479,
+                        "name": "onlyBuyer",
+                        "nameLocation": "735:9:2",
+                        "nodeType": "ModifierDefinition",
+                        "parameters": {
+                            "id": 468,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "744:2:2"
+                        },
+                        "src": "726:104:2",
+                        "virtual": false,
+                        "visibility": "internal"
+                    },
+                    {
+                        "body": {
+                            "id": 490,
+                            "nodeType": "Block",
+                            "src": "858:76:2",
+                            "statements": [
+                                {
+                                    "condition": {
+                                        "commonType": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        },
+                                        "id": 484,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftExpression": {
+                                            "expression": {
+                                                "id": 481,
+                                                "name": "msg",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 4294967281,
+                                                "src": "872:3:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_magic_message",
+                                                    "typeString": "msg"
+                                                }
+                                            },
+                                            "id": 482,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "memberLocation": "876:6:2",
+                                            "memberName": "sender",
+                                            "nodeType": "MemberAccess",
+                                            "src": "872:10:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            }
+                                        },
+                                        "nodeType": "BinaryOperation",
+                                        "operator": "!=",
+                                        "rightExpression": {
+                                            "id": 483,
+                                            "name": "seller",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 435,
+                                            "src": "886:6:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address_payable",
+                                                "typeString": "address payable"
+                                            }
+                                        },
+                                        "src": "872:20:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_bool",
+                                            "typeString": "bool"
+                                        }
+                                    },
+                                    "id": 488,
+                                    "nodeType": "IfStatement",
+                                    "src": "868:57:2",
+                                    "trueBody": {
+                                        "errorCall": {
+                                            "arguments": [],
+                                            "expression": {
+                                                "argumentTypes": [],
+                                                "id": 485,
+                                                "name": "OnlySeller",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 461,
+                                                "src": "913:10:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                                                    "typeString": "function () pure"
+                                                }
+                                            },
+                                            "id": 486,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "kind": "functionCall",
+                                            "lValueRequested": false,
+                                            "nameLocations": [],
+                                            "names": [],
+                                            "nodeType": "FunctionCall",
+                                            "src": "913:12:2",
+                                            "tryCall": false,
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_tuple$__$",
+                                                "typeString": "tuple()"
+                                            }
+                                        },
+                                        "id": 487,
+                                        "nodeType": "RevertStatement",
+                                        "src": "906:19:2"
+                                    }
+                                },
+                                {
+                                    "id": 489,
+                                    "nodeType": "PlaceholderStatement",
+                                    "src": "926:1:2"
+                                }
+                            ]
+                        },
+                        "id": 491,
+                        "name": "onlySeller",
+                        "nameLocation": "845:10:2",
+                        "nodeType": "ModifierDefinition",
+                        "parameters": {
+                            "id": 480,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "855:2:2"
+                        },
+                        "src": "836:98:2",
+                        "virtual": false,
+                        "visibility": "internal"
+                    },
+                    {
+                        "body": {
+                            "id": 504,
+                            "nodeType": "Block",
+                            "src": "971:82:2",
+                            "statements": [
+                                {
+                                    "condition": {
+                                        "commonType": {
+                                            "typeIdentifier": "t_enum$_State_$442",
+                                            "typeString": "enum Purchase.State"
+                                        },
+                                        "id": 498,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftExpression": {
+                                            "id": 496,
+                                            "name": "state",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 445,
+                                            "src": "985:5:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_enum$_State_$442",
+                                                "typeString": "enum Purchase.State"
+                                            }
+                                        },
+                                        "nodeType": "BinaryOperation",
+                                        "operator": "!=",
+                                        "rightExpression": {
+                                            "id": 497,
+                                            "name": "state_",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 494,
+                                            "src": "994:6:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_enum$_State_$442",
+                                                "typeString": "enum Purchase.State"
+                                            }
+                                        },
+                                        "src": "985:15:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_bool",
+                                            "typeString": "bool"
+                                        }
+                                    },
+                                    "id": 502,
+                                    "nodeType": "IfStatement",
+                                    "src": "981:54:2",
+                                    "trueBody": {
+                                        "errorCall": {
+                                            "arguments": [],
+                                            "expression": {
+                                                "argumentTypes": [],
+                                                "id": 499,
+                                                "name": "InvalidState",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 464,
+                                                "src": "1021:12:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                                                    "typeString": "function () pure"
+                                                }
+                                            },
+                                            "id": 500,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "kind": "functionCall",
+                                            "lValueRequested": false,
+                                            "nameLocations": [],
+                                            "names": [],
+                                            "nodeType": "FunctionCall",
+                                            "src": "1021:14:2",
+                                            "tryCall": false,
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_tuple$__$",
+                                                "typeString": "tuple()"
+                                            }
+                                        },
+                                        "id": 501,
+                                        "nodeType": "RevertStatement",
+                                        "src": "1014:21:2"
+                                    }
+                                },
+                                {
+                                    "id": 503,
+                                    "nodeType": "PlaceholderStatement",
+                                    "src": "1045:1:2"
+                                }
+                            ]
+                        },
+                        "id": 505,
+                        "name": "inState",
+                        "nameLocation": "949:7:2",
+                        "nodeType": "ModifierDefinition",
+                        "parameters": {
+                            "id": 495,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 494,
+                                    "mutability": "mutable",
+                                    "name": "state_",
+                                    "nameLocation": "963:6:2",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 505,
+                                    "src": "957:12:2",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_enum$_State_$442",
+                                        "typeString": "enum Purchase.State"
+                                    },
+                                    "typeName": {
+                                        "id": 493,
+                                        "nodeType": "UserDefinedTypeName",
+                                        "pathNode": {
+                                            "id": 492,
+                                            "name": "State",
+                                            "nameLocations": [
+                                                "957:5:2"
+                                            ],
+                                            "nodeType": "IdentifierPath",
+                                            "referencedDeclaration": 442,
+                                            "src": "957:5:2"
+                                        },
+                                        "referencedDeclaration": 442,
+                                        "src": "957:5:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_enum$_State_$442",
+                                            "typeString": "enum Purchase.State"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "956:14:2"
+                        },
+                        "src": "940:113:2",
+                        "virtual": false,
+                        "visibility": "internal"
+                    },
+                    {
+                        "anonymous": false,
+                        "eventSelector": "72c874aeff0b183a56e2b79c71b46e1aed4dee5e09862134b8821ba2fddbf8bf",
+                        "id": 507,
+                        "name": "Aborted",
+                        "nameLocation": "1065:7:2",
+                        "nodeType": "EventDefinition",
+                        "parameters": {
+                            "id": 506,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1072:2:2"
+                        },
+                        "src": "1059:16:2"
+                    },
+                    {
+                        "anonymous": false,
+                        "eventSelector": "d5d55c8a68912e9a110618df8d5e2e83b8d83211c57a8ddd1203df92885dc881",
+                        "id": 509,
+                        "name": "PurchaseConfirmed",
+                        "nameLocation": "1086:17:2",
+                        "nodeType": "EventDefinition",
+                        "parameters": {
+                            "id": 508,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1103:2:2"
+                        },
+                        "src": "1080:26:2"
+                    },
+                    {
+                        "anonymous": false,
+                        "eventSelector": "e89152acd703c9d8c7d28829d443260b411454d45394e7995815140c8cbcbcf7",
+                        "id": 511,
+                        "name": "ItemReceived",
+                        "nameLocation": "1117:12:2",
+                        "nodeType": "EventDefinition",
+                        "parameters": {
+                            "id": 510,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1129:2:2"
+                        },
+                        "src": "1111:21:2"
+                    },
+                    {
+                        "anonymous": false,
+                        "eventSelector": "fda69c32bcfdba840a167777906b173b607eb8b4d8853b97a80d26e613d858db",
+                        "id": 513,
+                        "name": "SellerRefunded",
+                        "nameLocation": "1143:14:2",
+                        "nodeType": "EventDefinition",
+                        "parameters": {
+                            "id": 512,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1157:2:2"
+                        },
+                        "src": "1137:23:2"
+                    },
+                    {
+                        "body": {
+                            "id": 542,
+                            "nodeType": "Block",
+                            "src": "1354:149:2",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "id": 522,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 516,
+                                            "name": "seller",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 435,
+                                            "src": "1364:6:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address_payable",
+                                                "typeString": "address payable"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "arguments": [
+                                                {
+                                                    "expression": {
+                                                        "id": 519,
+                                                        "name": "msg",
+                                                        "nodeType": "Identifier",
+                                                        "overloadedDeclarations": [],
+                                                        "referencedDeclaration": 4294967281,
+                                                        "src": "1381:3:2",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_magic_message",
+                                                            "typeString": "msg"
+                                                        }
+                                                    },
+                                                    "id": 520,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": false,
+                                                    "lValueRequested": false,
+                                                    "memberLocation": "1385:6:2",
+                                                    "memberName": "sender",
+                                                    "nodeType": "MemberAccess",
+                                                    "src": "1381:10:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                }
+                                            ],
+                                            "expression": {
+                                                "argumentTypes": [
+                                                    {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                ],
+                                                "id": 518,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": true,
+                                                "lValueRequested": false,
+                                                "nodeType": "ElementaryTypeNameExpression",
+                                                "src": "1373:8:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_type$_t_address_payable_$",
+                                                    "typeString": "type(address payable)"
+                                                },
+                                                "typeName": {
+                                                    "id": 517,
+                                                    "name": "address",
+                                                    "nodeType": "ElementaryTypeName",
+                                                    "src": "1373:8:2",
+                                                    "stateMutability": "payable",
+                                                    "typeDescriptions": {}
+                                                }
+                                            },
+                                            "id": 521,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "kind": "typeConversion",
+                                            "lValueRequested": false,
+                                            "nameLocations": [],
+                                            "names": [],
+                                            "nodeType": "FunctionCall",
+                                            "src": "1373:19:2",
+                                            "tryCall": false,
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address_payable",
+                                                "typeString": "address payable"
+                                            }
+                                        },
+                                        "src": "1364:28:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address_payable",
+                                            "typeString": "address payable"
+                                        }
+                                    },
+                                    "id": 523,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "1364:28:2"
+                                },
+                                {
+                                    "expression": {
+                                        "id": 529,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 524,
+                                            "name": "value",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 433,
+                                            "src": "1402:5:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_uint256",
+                                                "typeString": "uint256"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "commonType": {
+                                                "typeIdentifier": "t_uint256",
+                                                "typeString": "uint256"
+                                            },
+                                            "id": 528,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "leftExpression": {
+                                                "expression": {
+                                                    "id": 525,
+                                                    "name": "msg",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 4294967281,
+                                                    "src": "1410:3:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_magic_message",
+                                                        "typeString": "msg"
+                                                    }
+                                                },
+                                                "id": 526,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "memberLocation": "1414:5:2",
+                                                "memberName": "value",
+                                                "nodeType": "MemberAccess",
+                                                "src": "1410:9:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_uint256",
+                                                    "typeString": "uint256"
+                                                }
+                                            },
+                                            "nodeType": "BinaryOperation",
+                                            "operator": "/",
+                                            "rightExpression": {
+                                                "hexValue": "32",
+                                                "id": 527,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": true,
+                                                "kind": "number",
+                                                "lValueRequested": false,
+                                                "nodeType": "Literal",
+                                                "src": "1422:1:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_rational_2_by_1",
+                                                    "typeString": "int_const 2"
+                                                },
+                                                "value": "2"
+                                            },
+                                            "src": "1410:13:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_uint256",
+                                                "typeString": "uint256"
+                                            }
+                                        },
+                                        "src": "1402:21:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "id": 530,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "1402:21:2"
+                                },
+                                {
+                                    "condition": {
+                                        "commonType": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        },
+                                        "id": 537,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftExpression": {
+                                            "components": [
+                                                {
+                                                    "commonType": {
+                                                        "typeIdentifier": "t_uint256",
+                                                        "typeString": "uint256"
+                                                    },
+                                                    "id": 533,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": false,
+                                                    "lValueRequested": false,
+                                                    "leftExpression": {
+                                                        "hexValue": "32",
+                                                        "id": 531,
+                                                        "isConstant": false,
+                                                        "isLValue": false,
+                                                        "isPure": true,
+                                                        "kind": "number",
+                                                        "lValueRequested": false,
+                                                        "nodeType": "Literal",
+                                                        "src": "1438:1:2",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_rational_2_by_1",
+                                                            "typeString": "int_const 2"
+                                                        },
+                                                        "value": "2"
+                                                    },
+                                                    "nodeType": "BinaryOperation",
+                                                    "operator": "*",
+                                                    "rightExpression": {
+                                                        "id": 532,
+                                                        "name": "value",
+                                                        "nodeType": "Identifier",
+                                                        "overloadedDeclarations": [],
+                                                        "referencedDeclaration": 433,
+                                                        "src": "1442:5:2",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_uint256",
+                                                            "typeString": "uint256"
+                                                        }
+                                                    },
+                                                    "src": "1438:9:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_uint256",
+                                                        "typeString": "uint256"
+                                                    }
+                                                }
+                                            ],
+                                            "id": 534,
+                                            "isConstant": false,
+                                            "isInlineArray": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "nodeType": "TupleExpression",
+                                            "src": "1437:11:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_uint256",
+                                                "typeString": "uint256"
+                                            }
+                                        },
+                                        "nodeType": "BinaryOperation",
+                                        "operator": "!=",
+                                        "rightExpression": {
+                                            "expression": {
+                                                "id": 535,
+                                                "name": "msg",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 4294967281,
+                                                "src": "1452:3:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_magic_message",
+                                                    "typeString": "msg"
+                                                }
+                                            },
+                                            "id": 536,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "memberLocation": "1456:5:2",
+                                            "memberName": "value",
+                                            "nodeType": "MemberAccess",
+                                            "src": "1452:9:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_uint256",
+                                                "typeString": "uint256"
+                                            }
+                                        },
+                                        "src": "1437:24:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_bool",
+                                            "typeString": "bool"
+                                        }
+                                    },
+                                    "id": 541,
+                                    "nodeType": "IfStatement",
+                                    "src": "1433:63:2",
+                                    "trueBody": {
+                                        "errorCall": {
+                                            "arguments": [],
+                                            "expression": {
+                                                "argumentTypes": [],
+                                                "id": 538,
+                                                "name": "ValueNotEven",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 467,
+                                                "src": "1482:12:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_function_error_pure$__$returns$__$",
+                                                    "typeString": "function () pure"
+                                                }
+                                            },
+                                            "id": 539,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "kind": "functionCall",
+                                            "lValueRequested": false,
+                                            "nameLocations": [],
+                                            "names": [],
+                                            "nodeType": "FunctionCall",
+                                            "src": "1482:14:2",
+                                            "tryCall": false,
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_tuple$__$",
+                                                "typeString": "tuple()"
+                                            }
+                                        },
+                                        "id": 540,
+                                        "nodeType": "RevertStatement",
+                                        "src": "1475:21:2"
+                                    }
+                                }
+                            ]
+                        },
+                        "id": 543,
+                        "implemented": true,
+                        "kind": "constructor",
+                        "modifiers": [],
+                        "name": "",
+                        "nameLocation": "-1:-1:-1",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 514,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1343:2:2"
+                        },
+                        "returnParameters": {
+                            "id": 515,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1354:0:2"
+                        },
+                        "scope": 659,
+                        "src": "1332:171:2",
+                        "stateMutability": "payable",
+                        "virtual": false,
+                        "visibility": "public"
+                    },
+                    {
+                        "body": {
+                            "id": 571,
+                            "nodeType": "Block",
+                            "src": "1727:288:2",
+                            "statements": [
+                                {
+                                    "eventCall": {
+                                        "arguments": [],
+                                        "expression": {
+                                            "argumentTypes": [],
+                                            "id": 553,
+                                            "name": "Aborted",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 507,
+                                            "src": "1742:7:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_event_nonpayable$__$returns$__$",
+                                                "typeString": "function ()"
+                                            }
+                                        },
+                                        "id": 554,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "nameLocations": [],
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "1742:9:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 555,
+                                    "nodeType": "EmitStatement",
+                                    "src": "1737:14:2"
+                                },
+                                {
+                                    "expression": {
+                                        "id": 559,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 556,
+                                            "name": "state",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 445,
+                                            "src": "1761:5:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_enum$_State_$442",
+                                                "typeString": "enum Purchase.State"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "expression": {
+                                                "id": 557,
+                                                "name": "State",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 442,
+                                                "src": "1769:5:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_type$_t_enum$_State_$442_$",
+                                                    "typeString": "type(enum Purchase.State)"
+                                                }
+                                            },
+                                            "id": 558,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": true,
+                                            "lValueRequested": false,
+                                            "memberLocation": "1775:8:2",
+                                            "memberName": "Inactive",
+                                            "nodeType": "MemberAccess",
+                                            "referencedDeclaration": 441,
+                                            "src": "1769:14:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_enum$_State_$442",
+                                                "typeString": "enum Purchase.State"
+                                            }
+                                        },
+                                        "src": "1761:22:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_enum$_State_$442",
+                                            "typeString": "enum Purchase.State"
+                                        }
+                                    },
+                                    "id": 560,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "1761:22:2"
+                                },
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "expression": {
+                                                    "arguments": [
+                                                        {
+                                                            "id": 566,
+                                                            "name": "this",
+                                                            "nodeType": "Identifier",
+                                                            "overloadedDeclarations": [],
+                                                            "referencedDeclaration": 4294967268,
+                                                            "src": "1994:4:2",
+                                                            "typeDescriptions": {
+                                                                "typeIdentifier": "t_contract$_Purchase_$659",
+                                                                "typeString": "contract Purchase"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "expression": {
+                                                        "argumentTypes": [
+                                                            {
+                                                                "typeIdentifier": "t_contract$_Purchase_$659",
+                                                                "typeString": "contract Purchase"
+                                                            }
+                                                        ],
+                                                        "id": 565,
+                                                        "isConstant": false,
+                                                        "isLValue": false,
+                                                        "isPure": true,
+                                                        "lValueRequested": false,
+                                                        "nodeType": "ElementaryTypeNameExpression",
+                                                        "src": "1986:7:2",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_type$_t_address_$",
+                                                            "typeString": "type(address)"
+                                                        },
+                                                        "typeName": {
+                                                            "id": 564,
+                                                            "name": "address",
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "src": "1986:7:2",
+                                                            "typeDescriptions": {}
+                                                        }
+                                                    },
+                                                    "id": 567,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": false,
+                                                    "kind": "typeConversion",
+                                                    "lValueRequested": false,
+                                                    "nameLocations": [],
+                                                    "names": [],
+                                                    "nodeType": "FunctionCall",
+                                                    "src": "1986:13:2",
+                                                    "tryCall": false,
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                },
+                                                "id": 568,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "memberLocation": "2000:7:2",
+                                                "memberName": "balance",
+                                                "nodeType": "MemberAccess",
+                                                "src": "1986:21:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_uint256",
+                                                    "typeString": "uint256"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_uint256",
+                                                    "typeString": "uint256"
+                                                }
+                                            ],
+                                            "expression": {
+                                                "id": 561,
+                                                "name": "seller",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 435,
+                                                "src": "1970:6:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address_payable",
+                                                    "typeString": "address payable"
+                                                }
+                                            },
+                                            "id": 563,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "memberLocation": "1977:8:2",
+                                            "memberName": "transfer",
+                                            "nodeType": "MemberAccess",
+                                            "src": "1970:15:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
+                                                "typeString": "function (uint256)"
+                                            }
+                                        },
+                                        "id": 569,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "nameLocations": [],
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "1970:38:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 570,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "1970:38:2"
+                                }
+                            ]
+                        },
+                        "documentation": {
+                            "id": 544,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "1509:125:2",
+                            "text": "Abort the purchase and reclaim the ether.\n Can only be called by the seller before\n the contract is locked."
+                        },
+                        "functionSelector": "35a063b4",
+                        "id": 572,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [
+                            {
+                                "id": 547,
+                                "kind": "modifierInvocation",
+                                "modifierName": {
+                                    "id": 546,
+                                    "name": "onlySeller",
+                                    "nameLocations": [
+                                        "1681:10:2"
+                                    ],
+                                    "nodeType": "IdentifierPath",
+                                    "referencedDeclaration": 491,
+                                    "src": "1681:10:2"
+                                },
+                                "nodeType": "ModifierInvocation",
+                                "src": "1681:10:2"
+                            },
+                            {
+                                "arguments": [
+                                    {
+                                        "expression": {
+                                            "id": 549,
+                                            "name": "State",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 442,
+                                            "src": "1708:5:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_type$_t_enum$_State_$442_$",
+                                                "typeString": "type(enum Purchase.State)"
+                                            }
+                                        },
+                                        "id": 550,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": true,
+                                        "lValueRequested": false,
+                                        "memberLocation": "1714:7:2",
+                                        "memberName": "Created",
+                                        "nodeType": "MemberAccess",
+                                        "referencedDeclaration": 438,
+                                        "src": "1708:13:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_enum$_State_$442",
+                                            "typeString": "enum Purchase.State"
+                                        }
+                                    }
+                                ],
+                                "id": 551,
+                                "kind": "modifierInvocation",
+                                "modifierName": {
+                                    "id": 548,
+                                    "name": "inState",
+                                    "nameLocations": [
+                                        "1700:7:2"
+                                    ],
+                                    "nodeType": "IdentifierPath",
+                                    "referencedDeclaration": 505,
+                                    "src": "1700:7:2"
+                                },
+                                "nodeType": "ModifierInvocation",
+                                "src": "1700:22:2"
+                            }
+                        ],
+                        "name": "abort",
+                        "nameLocation": "1648:5:2",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 545,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1653:2:2"
+                        },
+                        "returnParameters": {
+                            "id": 552,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1727:0:2"
+                        },
+                        "scope": 659,
+                        "src": "1639:376:2",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "body": {
+                            "id": 605,
+                            "nodeType": "Block",
+                            "src": "2318:108:2",
+                            "statements": [
+                                {
+                                    "eventCall": {
+                                        "arguments": [],
+                                        "expression": {
+                                            "argumentTypes": [],
+                                            "id": 589,
+                                            "name": "PurchaseConfirmed",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 509,
+                                            "src": "2333:17:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_event_nonpayable$__$returns$__$",
+                                                "typeString": "function ()"
+                                            }
+                                        },
+                                        "id": 590,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "nameLocations": [],
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "2333:19:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 591,
+                                    "nodeType": "EmitStatement",
+                                    "src": "2328:24:2"
+                                },
+                                {
+                                    "expression": {
+                                        "id": 598,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 592,
+                                            "name": "buyer",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 437,
+                                            "src": "2362:5:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address_payable",
+                                                "typeString": "address payable"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "arguments": [
+                                                {
+                                                    "expression": {
+                                                        "id": 595,
+                                                        "name": "msg",
+                                                        "nodeType": "Identifier",
+                                                        "overloadedDeclarations": [],
+                                                        "referencedDeclaration": 4294967281,
+                                                        "src": "2378:3:2",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_magic_message",
+                                                            "typeString": "msg"
+                                                        }
+                                                    },
+                                                    "id": 596,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": false,
+                                                    "lValueRequested": false,
+                                                    "memberLocation": "2382:6:2",
+                                                    "memberName": "sender",
+                                                    "nodeType": "MemberAccess",
+                                                    "src": "2378:10:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                }
+                                            ],
+                                            "expression": {
+                                                "argumentTypes": [
+                                                    {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                ],
+                                                "id": 594,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": true,
+                                                "lValueRequested": false,
+                                                "nodeType": "ElementaryTypeNameExpression",
+                                                "src": "2370:8:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_type$_t_address_payable_$",
+                                                    "typeString": "type(address payable)"
+                                                },
+                                                "typeName": {
+                                                    "id": 593,
+                                                    "name": "address",
+                                                    "nodeType": "ElementaryTypeName",
+                                                    "src": "2370:8:2",
+                                                    "stateMutability": "payable",
+                                                    "typeDescriptions": {}
+                                                }
+                                            },
+                                            "id": 597,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "kind": "typeConversion",
+                                            "lValueRequested": false,
+                                            "nameLocations": [],
+                                            "names": [],
+                                            "nodeType": "FunctionCall",
+                                            "src": "2370:19:2",
+                                            "tryCall": false,
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address_payable",
+                                                "typeString": "address payable"
+                                            }
+                                        },
+                                        "src": "2362:27:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address_payable",
+                                            "typeString": "address payable"
+                                        }
+                                    },
+                                    "id": 599,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "2362:27:2"
+                                },
+                                {
+                                    "expression": {
+                                        "id": 603,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 600,
+                                            "name": "state",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 445,
+                                            "src": "2399:5:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_enum$_State_$442",
+                                                "typeString": "enum Purchase.State"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "expression": {
+                                                "id": 601,
+                                                "name": "State",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 442,
+                                                "src": "2407:5:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_type$_t_enum$_State_$442_$",
+                                                    "typeString": "type(enum Purchase.State)"
+                                                }
+                                            },
+                                            "id": 602,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": true,
+                                            "lValueRequested": false,
+                                            "memberLocation": "2413:6:2",
+                                            "memberName": "Locked",
+                                            "nodeType": "MemberAccess",
+                                            "referencedDeclaration": 439,
+                                            "src": "2407:12:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_enum$_State_$442",
+                                                "typeString": "enum Purchase.State"
+                                            }
+                                        },
+                                        "src": "2399:20:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_enum$_State_$442",
+                                            "typeString": "enum Purchase.State"
+                                        }
+                                    },
+                                    "id": 604,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "2399:20:2"
+                                }
+                            ]
+                        },
+                        "documentation": {
+                            "id": 573,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "2021:162:2",
+                            "text": "Confirm the purchase as buyer.\n Transaction has to include `2 * value` ether.\n The ether will be locked until confirmReceived\n is called."
+                        },
+                        "functionSelector": "d6960697",
+                        "id": 606,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [
+                            {
+                                "arguments": [
+                                    {
+                                        "expression": {
+                                            "id": 576,
+                                            "name": "State",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 442,
+                                            "src": "2248:5:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_type$_t_enum$_State_$442_$",
+                                                "typeString": "type(enum Purchase.State)"
+                                            }
+                                        },
+                                        "id": 577,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": true,
+                                        "lValueRequested": false,
+                                        "memberLocation": "2254:7:2",
+                                        "memberName": "Created",
+                                        "nodeType": "MemberAccess",
+                                        "referencedDeclaration": 438,
+                                        "src": "2248:13:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_enum$_State_$442",
+                                            "typeString": "enum Purchase.State"
+                                        }
+                                    }
+                                ],
+                                "id": 578,
+                                "kind": "modifierInvocation",
+                                "modifierName": {
+                                    "id": 575,
+                                    "name": "inState",
+                                    "nameLocations": [
+                                        "2240:7:2"
+                                    ],
+                                    "nodeType": "IdentifierPath",
+                                    "referencedDeclaration": 505,
+                                    "src": "2240:7:2"
+                                },
+                                "nodeType": "ModifierInvocation",
+                                "src": "2240:22:2"
+                            },
+                            {
+                                "arguments": [
+                                    {
+                                        "commonType": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        },
+                                        "id": 586,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftExpression": {
+                                            "expression": {
+                                                "id": 580,
+                                                "name": "msg",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 4294967281,
+                                                "src": "2272:3:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_magic_message",
+                                                    "typeString": "msg"
+                                                }
+                                            },
+                                            "id": 581,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "memberLocation": "2276:5:2",
+                                            "memberName": "value",
+                                            "nodeType": "MemberAccess",
+                                            "src": "2272:9:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_uint256",
+                                                "typeString": "uint256"
+                                            }
+                                        },
+                                        "nodeType": "BinaryOperation",
+                                        "operator": "==",
+                                        "rightExpression": {
+                                            "components": [
+                                                {
+                                                    "commonType": {
+                                                        "typeIdentifier": "t_uint256",
+                                                        "typeString": "uint256"
+                                                    },
+                                                    "id": 584,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": false,
+                                                    "lValueRequested": false,
+                                                    "leftExpression": {
+                                                        "hexValue": "32",
+                                                        "id": 582,
+                                                        "isConstant": false,
+                                                        "isLValue": false,
+                                                        "isPure": true,
+                                                        "kind": "number",
+                                                        "lValueRequested": false,
+                                                        "nodeType": "Literal",
+                                                        "src": "2286:1:2",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_rational_2_by_1",
+                                                            "typeString": "int_const 2"
+                                                        },
+                                                        "value": "2"
+                                                    },
+                                                    "nodeType": "BinaryOperation",
+                                                    "operator": "*",
+                                                    "rightExpression": {
+                                                        "id": 583,
+                                                        "name": "value",
+                                                        "nodeType": "Identifier",
+                                                        "overloadedDeclarations": [],
+                                                        "referencedDeclaration": 433,
+                                                        "src": "2290:5:2",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_uint256",
+                                                            "typeString": "uint256"
+                                                        }
+                                                    },
+                                                    "src": "2286:9:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_uint256",
+                                                        "typeString": "uint256"
+                                                    }
+                                                }
+                                            ],
+                                            "id": 585,
+                                            "isConstant": false,
+                                            "isInlineArray": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "nodeType": "TupleExpression",
+                                            "src": "2285:11:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_uint256",
+                                                "typeString": "uint256"
+                                            }
+                                        },
+                                        "src": "2272:24:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_bool",
+                                            "typeString": "bool"
+                                        }
+                                    }
+                                ],
+                                "id": 587,
+                                "kind": "modifierInvocation",
+                                "modifierName": {
+                                    "id": 579,
+                                    "name": "condition",
+                                    "nameLocations": [
+                                        "2262:9:2"
+                                    ],
+                                    "nodeType": "IdentifierPath",
+                                    "referencedDeclaration": 455,
+                                    "src": "2262:9:2"
+                                },
+                                "nodeType": "ModifierInvocation",
+                                "src": "2262:35:2"
+                            }
+                        ],
+                        "name": "confirmPurchase",
+                        "nameLocation": "2197:15:2",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 574,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "2212:2:2"
+                        },
+                        "returnParameters": {
+                            "id": 588,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "2318:0:2"
+                        },
+                        "scope": 659,
+                        "src": "2188:238:2",
+                        "stateMutability": "payable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "body": {
+                            "id": 630,
+                            "nodeType": "Block",
+                            "src": "2628:257:2",
+                            "statements": [
+                                {
+                                    "eventCall": {
+                                        "arguments": [],
+                                        "expression": {
+                                            "argumentTypes": [],
+                                            "id": 616,
+                                            "name": "ItemReceived",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 511,
+                                            "src": "2643:12:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_event_nonpayable$__$returns$__$",
+                                                "typeString": "function ()"
+                                            }
+                                        },
+                                        "id": 617,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "nameLocations": [],
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "2643:14:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 618,
+                                    "nodeType": "EmitStatement",
+                                    "src": "2638:19:2"
+                                },
+                                {
+                                    "expression": {
+                                        "id": 622,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 619,
+                                            "name": "state",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 445,
+                                            "src": "2825:5:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_enum$_State_$442",
+                                                "typeString": "enum Purchase.State"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "expression": {
+                                                "id": 620,
+                                                "name": "State",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 442,
+                                                "src": "2833:5:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_type$_t_enum$_State_$442_$",
+                                                    "typeString": "type(enum Purchase.State)"
+                                                }
+                                            },
+                                            "id": 621,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": true,
+                                            "lValueRequested": false,
+                                            "memberLocation": "2839:7:2",
+                                            "memberName": "Release",
+                                            "nodeType": "MemberAccess",
+                                            "referencedDeclaration": 440,
+                                            "src": "2833:13:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_enum$_State_$442",
+                                                "typeString": "enum Purchase.State"
+                                            }
+                                        },
+                                        "src": "2825:21:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_enum$_State_$442",
+                                            "typeString": "enum Purchase.State"
+                                        }
+                                    },
+                                    "id": 623,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "2825:21:2"
+                                },
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "id": 627,
+                                                "name": "value",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 433,
+                                                "src": "2872:5:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_uint256",
+                                                    "typeString": "uint256"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_uint256",
+                                                    "typeString": "uint256"
+                                                }
+                                            ],
+                                            "expression": {
+                                                "id": 624,
+                                                "name": "buyer",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 437,
+                                                "src": "2857:5:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address_payable",
+                                                    "typeString": "address payable"
+                                                }
+                                            },
+                                            "id": 626,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "memberLocation": "2863:8:2",
+                                            "memberName": "transfer",
+                                            "nodeType": "MemberAccess",
+                                            "src": "2857:14:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
+                                                "typeString": "function (uint256)"
+                                            }
+                                        },
+                                        "id": 628,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "nameLocations": [],
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "2857:21:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 629,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "2857:21:2"
+                                }
+                            ]
+                        },
+                        "documentation": {
+                            "id": 607,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "2432:95:2",
+                            "text": "Confirm that you (the buyer) received the item.\n This will release the locked ether."
+                        },
+                        "functionSelector": "73fac6f0",
+                        "id": 631,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [
+                            {
+                                "id": 610,
+                                "kind": "modifierInvocation",
+                                "modifierName": {
+                                    "id": 609,
+                                    "name": "onlyBuyer",
+                                    "nameLocations": [
+                                        "2584:9:2"
+                                    ],
+                                    "nodeType": "IdentifierPath",
+                                    "referencedDeclaration": 479,
+                                    "src": "2584:9:2"
+                                },
+                                "nodeType": "ModifierInvocation",
+                                "src": "2584:9:2"
+                            },
+                            {
+                                "arguments": [
+                                    {
+                                        "expression": {
+                                            "id": 612,
+                                            "name": "State",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 442,
+                                            "src": "2610:5:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_type$_t_enum$_State_$442_$",
+                                                "typeString": "type(enum Purchase.State)"
+                                            }
+                                        },
+                                        "id": 613,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": true,
+                                        "lValueRequested": false,
+                                        "memberLocation": "2616:6:2",
+                                        "memberName": "Locked",
+                                        "nodeType": "MemberAccess",
+                                        "referencedDeclaration": 439,
+                                        "src": "2610:12:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_enum$_State_$442",
+                                            "typeString": "enum Purchase.State"
+                                        }
+                                    }
+                                ],
+                                "id": 614,
+                                "kind": "modifierInvocation",
+                                "modifierName": {
+                                    "id": 611,
+                                    "name": "inState",
+                                    "nameLocations": [
+                                        "2602:7:2"
+                                    ],
+                                    "nodeType": "IdentifierPath",
+                                    "referencedDeclaration": 505,
+                                    "src": "2602:7:2"
+                                },
+                                "nodeType": "ModifierInvocation",
+                                "src": "2602:21:2"
+                            }
+                        ],
+                        "name": "confirmReceived",
+                        "nameLocation": "2541:15:2",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 608,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "2556:2:2"
+                        },
+                        "returnParameters": {
+                            "id": 615,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "2628:0:2"
+                        },
+                        "scope": 659,
+                        "src": "2532:353:2",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    },
+                    {
+                        "body": {
+                            "id": 657,
+                            "nodeType": "Block",
+                            "src": "3083:265:2",
+                            "statements": [
+                                {
+                                    "eventCall": {
+                                        "arguments": [],
+                                        "expression": {
+                                            "argumentTypes": [],
+                                            "id": 641,
+                                            "name": "SellerRefunded",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 513,
+                                            "src": "3098:14:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_event_nonpayable$__$returns$__$",
+                                                "typeString": "function ()"
+                                            }
+                                        },
+                                        "id": 642,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "nameLocations": [],
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "3098:16:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 643,
+                                    "nodeType": "EmitStatement",
+                                    "src": "3093:21:2"
+                                },
+                                {
+                                    "expression": {
+                                        "id": 647,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 644,
+                                            "name": "state",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 445,
+                                            "src": "3282:5:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_enum$_State_$442",
+                                                "typeString": "enum Purchase.State"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "expression": {
+                                                "id": 645,
+                                                "name": "State",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 442,
+                                                "src": "3290:5:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_type$_t_enum$_State_$442_$",
+                                                    "typeString": "type(enum Purchase.State)"
+                                                }
+                                            },
+                                            "id": 646,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": true,
+                                            "lValueRequested": false,
+                                            "memberLocation": "3296:8:2",
+                                            "memberName": "Inactive",
+                                            "nodeType": "MemberAccess",
+                                            "referencedDeclaration": 441,
+                                            "src": "3290:14:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_enum$_State_$442",
+                                                "typeString": "enum Purchase.State"
+                                            }
+                                        },
+                                        "src": "3282:22:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_enum$_State_$442",
+                                            "typeString": "enum Purchase.State"
+                                        }
+                                    },
+                                    "id": 648,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "3282:22:2"
+                                },
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "commonType": {
+                                                    "typeIdentifier": "t_uint256",
+                                                    "typeString": "uint256"
+                                                },
+                                                "id": 654,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "leftExpression": {
+                                                    "hexValue": "33",
+                                                    "id": 652,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": true,
+                                                    "kind": "number",
+                                                    "lValueRequested": false,
+                                                    "nodeType": "Literal",
+                                                    "src": "3331:1:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_rational_3_by_1",
+                                                        "typeString": "int_const 3"
+                                                    },
+                                                    "value": "3"
+                                                },
+                                                "nodeType": "BinaryOperation",
+                                                "operator": "*",
+                                                "rightExpression": {
+                                                    "id": 653,
+                                                    "name": "value",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 433,
+                                                    "src": "3335:5:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_uint256",
+                                                        "typeString": "uint256"
+                                                    }
+                                                },
+                                                "src": "3331:9:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_uint256",
+                                                    "typeString": "uint256"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_uint256",
+                                                    "typeString": "uint256"
+                                                }
+                                            ],
+                                            "expression": {
+                                                "id": 649,
+                                                "name": "seller",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 435,
+                                                "src": "3315:6:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address_payable",
+                                                    "typeString": "address payable"
+                                                }
+                                            },
+                                            "id": 651,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "memberLocation": "3322:8:2",
+                                            "memberName": "transfer",
+                                            "nodeType": "MemberAccess",
+                                            "src": "3315:15:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
+                                                "typeString": "function (uint256)"
+                                            }
+                                        },
+                                        "id": 655,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "nameLocations": [],
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "3315:26:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 656,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "3315:26:2"
+                                }
+                            ]
+                        },
+                        "documentation": {
+                            "id": 632,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "2891:92:2",
+                            "text": "This function refunds the seller, i.e.\n pays back the locked funds of the seller."
+                        },
+                        "functionSelector": "c7981b1b",
+                        "id": 658,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [
+                            {
+                                "id": 635,
+                                "kind": "modifierInvocation",
+                                "modifierName": {
+                                    "id": 634,
+                                    "name": "onlySeller",
+                                    "nameLocations": [
+                                        "3037:10:2"
+                                    ],
+                                    "nodeType": "IdentifierPath",
+                                    "referencedDeclaration": 491,
+                                    "src": "3037:10:2"
+                                },
+                                "nodeType": "ModifierInvocation",
+                                "src": "3037:10:2"
+                            },
+                            {
+                                "arguments": [
+                                    {
+                                        "expression": {
+                                            "id": 637,
+                                            "name": "State",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 442,
+                                            "src": "3064:5:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_type$_t_enum$_State_$442_$",
+                                                "typeString": "type(enum Purchase.State)"
+                                            }
+                                        },
+                                        "id": 638,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": true,
+                                        "lValueRequested": false,
+                                        "memberLocation": "3070:7:2",
+                                        "memberName": "Release",
+                                        "nodeType": "MemberAccess",
+                                        "referencedDeclaration": 440,
+                                        "src": "3064:13:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_enum$_State_$442",
+                                            "typeString": "enum Purchase.State"
+                                        }
+                                    }
+                                ],
+                                "id": 639,
+                                "kind": "modifierInvocation",
+                                "modifierName": {
+                                    "id": 636,
+                                    "name": "inState",
+                                    "nameLocations": [
+                                        "3056:7:2"
+                                    ],
+                                    "nodeType": "IdentifierPath",
+                                    "referencedDeclaration": 505,
+                                    "src": "3056:7:2"
+                                },
+                                "nodeType": "ModifierInvocation",
+                                "src": "3056:22:2"
+                            }
+                        ],
+                        "name": "refundSeller",
+                        "nameLocation": "2997:12:2",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 633,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "3009:2:2"
+                        },
+                        "returnParameters": {
+                            "id": 640,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "3083:0:2"
+                        },
+                        "scope": 659,
+                        "src": "2988:360:2",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "external"
+                    }
+                ],
+                "scope": 660,
+                "src": "60:3290:2",
+                "usedErrors": [
+                    458,
+                    461,
+                    464,
+                    467
+                ]
+            }
+        ],
+        "src": "36:3314:2"
+    },
+    "functionHashes": {
+        "abort()": "35a063b4",
+        "buyer()": "7150d8ae",
+        "confirmPurchase()": "d6960697",
+        "confirmReceived()": "73fac6f0",
+        "refundSeller()": "c7981b1b",
+        "seller()": "08551a53",
+        "state()": "c19d93fb",
+        "value()": "3fa4f245"
+    },
+    "gasEstimates": {
+        "creation": {
+            "codeDepositCost": "277800",
+            "executionCost": "46822",
+            "totalCost": "324622"
+        },
+        "external": {
+            "abort()": "infinite",
+            "buyer()": "2393",
+            "confirmPurchase()": "29611",
+            "confirmReceived()": "infinite",
+            "refundSeller()": "infinite",
+            "seller()": "2327",
+            "state()": "2390",
+            "value()": "2340"
+        }
+    }
+}

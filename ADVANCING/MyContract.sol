@@ -58,4 +58,8 @@ function addPerson(string memory _firstName, string memory _lastName) public {
     people[peopleCount] = Person(_firstName, _lastName, peopleCount);
     //  people.push(Person(_firstName, _lastName)); //same as above
   }
+  function incrementCount() internal {
+    peopleCount += 1;
+  }
 }
+
