@@ -1,11 +1,15 @@
 //EVENTS
+
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.0;
+
 contract MyContract {
     string public message = 'Over.. There';
 
     event MessageUpdated (
-        address indexed user;
-        string _message;
-
+        address indexed user,
+        string _message
+        
     );
     function updateMessage ( string memory _message ) public {
         message = _message;
@@ -20,7 +24,7 @@ contract MyContract {
         //additional info
     }
     //checking for a specific message or keyword for a transaction
-        uint publsic count = 0;
+        uint public count = 0;
     fallback() external payable{
         count++;
     }

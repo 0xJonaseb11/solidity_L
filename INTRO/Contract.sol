@@ -143,9 +143,9 @@ contract MyContract {
 
     function getBlockInfo () public view returns ( uint, uint, uint ) {
         return (
-            block.number;
-            block.timestamp;
-            block.chainId;
+            block.number,
+            block.timestamp,
+            block.chainid
         );
 
     }
@@ -171,7 +171,7 @@ contract MyContract {
     function modulus( uint a, uint b ) external pure returns ( uint ) {
         return a % b;
     }
-    function increment( uint a, uint b ) external pure returns {
+    function increment( uint a, uint b ) external pure returns ( uint ){
         a++;
         return a;
     }
@@ -204,7 +204,7 @@ contract MyContract {
         a += 1; // 1
         a++; // 2
         a *= 2; // 4
-        a **= 2; // 16
+        a ** a = 2; // 16
         a /= 2; // 8
         a -= -1; // 7
         a --; // 6
@@ -330,8 +330,8 @@ contract MyContract {
     string public message = 'Over.. There';
 
     event MessageUpdated (
-        address indexed user;
-        string _message;
+        address indexed user,
+        string _message
 
     );
     function updateMessage ( string memory _message ) public {
@@ -347,7 +347,7 @@ contract MyContract {
         //additional info
     }
     //checking for a specific message or keyword for a transaction
-        uint publsic count = 0;
+        uint public count = 0;
     fallback() external payable{
         count++;
     }
@@ -397,7 +397,7 @@ contract MyContract is Ownable {
     string public name = 'example1';
 
     function setContractName( string memory _name) public onlyOwner {
-        name = _name
+        name = _name;
 
     }
 }

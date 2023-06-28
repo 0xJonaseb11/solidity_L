@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "auto-commit": "^1.0.0",
+    "auto-push": "^0.4.0"
+  },
+  "devDependencies": {
+    "hardhat": "^2.16.1"
+  }
+}

@@ -1,4 +1,9 @@
 //ARRAYS
+
+
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.0;
+
 contract MyContract {
     uint[] public arr1 = [1, 2, 3];
     uint[] public arr2;

@@ -1,11 +1,16 @@
+
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.0;
+
 //ACTIONS AFTER IMPLEMENTATION OF SMART CONTRACTS
+
 contract MyContract {
     //To receive ether directly to a smart contract
     receive() external payable {
         //additional info
     }
     //checking for a specific message or keyword for a transaction
-        uint publsic count = 0;
+        uint public count = 0;
     fallback() external payable{
         count++;
     }

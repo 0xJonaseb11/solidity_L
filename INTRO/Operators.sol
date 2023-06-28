@@ -1,4 +1,10 @@
+
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.0;
+
 //OPERATORS
+
+
 contract MyContract {
     function add( uint a, uint b) external pure returns ( uint ) {
         return a + b;
@@ -18,7 +24,7 @@ contract MyContract {
     function modulus( uint a, uint b ) external pure returns ( uint ) {
         return a % b;
     }
-    function increment( uint a, uint b ) external pure returns {
+    function increment( uint a, uint b ) external pure returns ( uint ) {
         a++;
         return a;
     }
@@ -51,7 +57,7 @@ contract MyContract {
         a += 1; // 1
         a++; // 2
         a *= 2; // 4
-        a **= 2; // 16
+        a ** a = 2; // 16
         a /= 2; // 8
         a -= -1; // 7
         a --; // 6
