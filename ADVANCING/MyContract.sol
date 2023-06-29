@@ -5,28 +5,25 @@ contract ERC20Token {
     string public name;
     mapping(address => uint256) public balances;
 
-    function mint() public {
-        balances[msg.sender]++;
+    function mint () public {
+        balances[msg.sender] ++;
+
     }
 }
 
 contract MyContract {
-    string public value = "My contract value";
+    string public value = 'My contract value';
     bool public myBool = true;
     int public myInt = -1;
-    uint public myUint = 1; //Unsigned int
+    uint public myUint = 1;  //Unsigned int
     uint8 public myUint8 = 100;
     uint256 public peopleCount = 0;
-    mapping(uint => Person) public people;
+    mapping (uint => Person) public people;
     address owner;
     uint256 openingTime = 1687984697; //we use epoch time
     address public token;
 
-    enum State {
-        Waiting,
-        Ready,
-        Active
-    }
+    enum State { Waiting, Ready, Active }
     State public state;
 
     function activate() public {
@@ -37,21 +34,18 @@ contract MyContract {
         return state == State.Active;
     }
 
-    function getContract()
-        public
-        view
-        returns (string memory, bool, int, uint, uint8, State)
-    {
-        return (value, myBool, myInt, myUint, myUint8, state);
+    function getContract() public view returns (string memory, bool, int, uint, uint8, State) {
+        return (
+            value,
+            myBool,
+            myInt,
+            myUint,
+            myUint8,
+            state
+        );
     }
 
-    function setContract(
-        string memory _value,
-        bool _myBool,
-        int _myInt,
-        uint _myUint,
-        uint8 _myUint8
-    ) public {
+    function setContract(string memory _value, bool _myBool, int _myInt, uint _myUint, uint8 _myUint8) public {
         value = _value;
         myBool = _myBool;
         myInt = _myInt;
@@ -84,10 +78,7 @@ contract MyContract {
         token = _token;
     }
 
-    function addPerson(
-        string memory _firstName,
-        string memory _lastName
-    ) public onlyOwner onlyWhileOpen {
+    function addPerson(string memory _firstName, string memory _lastName) public onlyOwner onlyWhileOpen {
         incrementCount();
         people[peopleCount] = Person(_firstName, _lastName, peopleCount);
     }
@@ -100,18 +91,22 @@ contract MyContract {
     mapping(address => uint256) public balances;
     address payable wallet;
 
-    event Purchase(address _buyer, uint _amount);
+    event Purchase (
+        address _buyer,
+        uint _amount
+    );
 
     function buyToken() public payable {
         // Buy token
         balances[msg.sender] += 1;
-        //getting token from the ERC20 contract
+         //getting token from the ERC20 contract
         ERC20Token _token = ERC20Token(address(token));
         _token.mint();
         // Send ether
         wallet.transfer(msg.value);
         //Trigger event Purchase
-        emit Purchase(msg.sender, 1);
+        emit Purchase( msg.sender, 1);
+       
     }
 
     // Creating a fallback function
@@ -125,3 +120,4 @@ contract MyContract {
         buyToken();
     }
 }
+
