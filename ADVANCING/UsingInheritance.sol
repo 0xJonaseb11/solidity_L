@@ -13,7 +13,6 @@ contract Ownable {
         _;
     }
 }
-
 contract MyContract is Ownable {
     uint public data;
 
