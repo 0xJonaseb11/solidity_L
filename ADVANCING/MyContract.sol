@@ -1,17 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.4.22 <0.9.0;
 
-import "./Math.sol";
+//  using SafeMath for uint256;
 import "./SafeMath.sol";
-
-//Libraries in solidity
-library Math {
-    function divide(uint256 a, uint256 b) internal pure returns (uint256) {
-        require(b > 0); // to avoid erros
-        uint256 c = a / b;
-        return c;
-    }
-}
+import "./Math.sol";
 
 contract ERC20Token {
     string public name;
@@ -21,26 +13,24 @@ contract ERC20Token {
         name = _name;
     }
 
-    function mint() public {
+    function mint() public virtual {
         balances[tx.origin]++;
     }
 }
 
-//Inheritance of a token
 contract MyToken is ERC20Token {
     string public symbol;
-    address public owners;
-    uint256 ownerCount;
+    address[] public owners;
+    uint256 public ownerCount;
 
     constructor(string memory _name, string memory _symbol) ERC20Token(_name) {
-        _symbol = _symbol;
+        symbol = _symbol;
     }
 
-    function mint() public {
+    function mint() public override {
         super.mint();
         ownerCount++;
-
-        owner.push(msg.sender);
+        owners.push(msg.sender);
     }
 }
 
@@ -51,8 +41,8 @@ contract MyContract {
     uint8 public myUint8 = 100;
     uint256 public peopleCount = 0;
     mapping(uint => Person) public people;
-    address owner;
-    uint256 openingTime = 1687984697; //we use epoch time
+    address public owner;
+    uint256 public openingTime = 1687984697; //we use epoch time
     address public token;
     uint256 public value;
 
@@ -62,7 +52,7 @@ contract MyContract {
         Active
     }
     State public state;
-    using SafeMath for uint256;
+   
 
     function activate() public {
         state = State.Active;
@@ -75,13 +65,13 @@ contract MyContract {
     function getContract()
         public
         view
-        returns (string memory, bool, int, uint, uint8, State)
+        returns ( uint256 , bool, int, uint, uint8, State)
     {
         return (value, myBool, myInt, myUint, myUint8, state);
     }
 
     function setContract(
-        string memory _value,
+        uint256 _value,
         bool _myBool,
         int _myInt,
         uint _myUint,
@@ -93,8 +83,6 @@ contract MyContract {
         myUint = _myUint;
         myUint8 = _myUint8;
     }
-
-    //With structs
 
     modifier onlyWhileOpen() {
         require(block.timestamp >= openingTime);
@@ -108,12 +96,15 @@ contract MyContract {
 
     struct Person {
         string _firstName;
-        uint256 value;
         string _lastName;
+        uint256 _value;
         uint _id;
     }
 
-    // setting the owner and wallet
+    address payable wallet;
+
+    event Purchase(address _buyer, uint _amount);
+
     constructor(address payable _wallet, address _token) {
         owner = msg.sender;
         wallet = _wallet;
@@ -125,47 +116,29 @@ contract MyContract {
         string memory _lastName
     ) public onlyOwner onlyWhileOpen {
         incrementCount();
-        people[peopleCount] = Person(_firstName, _lastName, peopleCount);
+        people[peopleCount] = Person(_firstName, _lastName, value, peopleCount);
     }
 
     function incrementCount() internal {
         peopleCount += 1;
     }
 
-    // Sending ether and tokens across wallets
     mapping(address => uint256) public balances;
-    address payable wallet;
-
-    event Purchase(address _buyer, uint _amount);
 
     function buyToken() public payable {
-        // Buy token
         balances[msg.sender] += 1;
-        //getting token from the ERC20 contract
-        ERC20Token _token = ERC20Token(address(token)); //.mint();
-        _token.mint(); //remove
-        // Send ether
+        ERC20Token _token = ERC20Token(address(token));
+        _token.mint();
         wallet.transfer(msg.value);
-        //Trigger event Purchase
         emit Purchase(msg.sender, 1);
     }
 
-    // Creating a fallback function
     fallback() external payable {
-        // Handle all function calls and plain Ether transactions
         buyToken();
     }
 
     receive() external payable {
-        // Handle plain Ether transactions
         buyToken();
     }
 
-    function calculate(uint _value1, uint _value2) public {
-        value = _value1 / _value2;
-        Math.divide(_value1, _value2); //does ilike the above
-        value = SafeMath.divide(_value1, _value2);
-        //or
-        value = _value1.div(_value2);
-    }
 }
