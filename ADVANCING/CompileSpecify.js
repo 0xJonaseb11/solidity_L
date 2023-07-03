@@ -15,6 +15,9 @@ const input = {
     outputSelection: {
       [contractPath]: {
         'MyContract': ['abi', 'evm.bytecode'], //Specify contract here
+        'SafeMath':['abi', 'evm.bytecode'],
+        'Math':['abi', 'evm.bytecode'],
+        'UsingInheritance':['abi', 'evm.bytecode'] ,     
       },
     },
   },
@@ -29,8 +32,12 @@ try {
 
 
      //Specify contract here
-const contractBytecode = output.contracts[contractPath]['MyContract'].evm.bytecode.object;
-const contractAbi = output.contracts[contractPath]['MyContract'].abi;
+const contractBytecode = output.contracts[contractPath]['MyContract','SafeMath', 'UsingInheritance'].evm.bytecode.object;
+const contractAbi = output.contracts[contractPath]['MyContract', 'Math', 'UsingInheritance'].abi;
+
+  // Saving output to separate files
+  fs.writeFileSync('MyContract_bytecode.txt', contractBytecode);
+  fs.writeFileSync('MyContract_abi.json', JSON.stringify(contractAbi));
 
 console.log('Bytecode:');
 console.log(contractBytecode);

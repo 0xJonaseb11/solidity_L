@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.4.22 <0.9.0;
 
-//  using SafeMath for uint256;
-import "./SafeMath.sol";
-import "./Math.sol";
+//import "./SafeMath.sol";
+//import "./Math.sol";
 
 contract ERC20Token {
     string public name;
@@ -18,6 +17,7 @@ contract ERC20Token {
     }
 }
 
+//Inheritance
 contract MyToken is ERC20Token {
     string public symbol;
     address[] public owners;
@@ -27,7 +27,7 @@ contract MyToken is ERC20Token {
         symbol = _symbol;
     }
 
-    function mint() public override {
+    function mint() public override  {
         super.mint();
         ownerCount++;
         owners.push(msg.sender);
@@ -52,7 +52,6 @@ contract MyContract {
         Active
     }
     State public state;
-   
 
     function activate() public {
         state = State.Active;
@@ -65,7 +64,7 @@ contract MyContract {
     function getContract()
         public
         view
-        returns ( uint256 , bool, int, uint, uint8, State)
+        returns (uint256, bool, int, uint, uint8, State)
     {
         return (value, myBool, myInt, myUint, myUint8, state);
     }
@@ -114,6 +113,7 @@ contract MyContract {
     function addPerson(
         string memory _firstName,
         string memory _lastName
+        
     ) public onlyOwner onlyWhileOpen {
         incrementCount();
         people[peopleCount] = Person(_firstName, _lastName, value, peopleCount);
@@ -133,12 +133,11 @@ contract MyContract {
         emit Purchase(msg.sender, 1);
     }
 
-    fallback() external payable {
-        buyToken();
-    }
+     fallback() external payable {
+         buyToken();
+     }
 
-    receive() external payable {
-        buyToken();
+     receive() external payable {
+         buyToken();
     }
-
 }

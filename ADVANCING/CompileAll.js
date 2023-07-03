@@ -38,6 +38,7 @@ try {
   console.log(contractBytecode);
   console.log('ABI:');
   console.log(JSON.stringify(contractAbi));
+  
 } catch (error) {
   console.error('Compilation error:', error.message);
 }
