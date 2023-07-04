@@ -141,3 +141,4 @@ contract MyContract {
          buyToken();
     }
 }
+

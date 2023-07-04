@@ -1,5 +1,5 @@
 const fs = require('fs');
-const solc = require('solc');
+const solc = require('solcjs');
 
 const contractPath = 'MyContract.sol'; //Specify contract here
 const contractSource = fs.readFileSync(contractPath, 'utf8');
