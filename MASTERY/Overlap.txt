@@ -1,0 +1,96 @@
+SMART CONTRACTS:: Are a set of instructions executed in a decentralized way without the need for a centralized or third party intermediary ..
+
+FInd more on:: Oracle problem and oracle decentralization
+Note that most blockchains are compatible with ethereum
+ 
+WEB1.0:: permissionless open sourced web with static content
+WEB2.0:: permissioned web with dynamic content, where companies run your agreements on their servers
+WEB3.0:: permissionless web with dynamic content where decentralized networks run your agreement.. it is generally accompanied by user owned ecosystems.. #uses own protocols
+
+A SMART CONTRACT is  an agreement or contract  or set of instructions that is deployed on a decentralized blockchain..
+   
+   Advgs of SMART CONTRACTS
+   -------------------------
+   -decentralized
+   -counterparty  risk removal
+   -cannot mererly be hacked
+   -security immutability
+   -speed and effecient
+   -transparent and flexibility
+   -trust minimized agreements
+
+
+                   ACCRONYMS
+                ---------------
+                DEFI: DEcentralized FInance
+                DAOS::DEcentralized Autonomous Organisations.
+                NFTS::Non-fungible Tokens.
+
+                   ABOUT GAS
+                   -----------
+                   The more complex your blockchain is, the more gas you are charged and vice versa
+                   The more pple send transactions at the same time, the more gas costs are .
+                NOte that it is possible to set the limit of the gas that you want to spend across your transactions..
+             Base fee:: The minimum gas price to send your transaction.
+            Gas fee is paid by anyone that initialise a transaction.
+
+TRANSACTION FEE = GAS PRICE * GAS USED
+
+A HASH:: A unique fixed length string, meant to identify a piece of data. created by placing said data into a hash function
+ 
+ VISIT:: andersbrownworth.com
+      :: ethereum converter
+
+
+                      BLOCKS
+                    ----------
+                    GENESIS BLOCK::This is the first block in a blockchain
+
+                     -A hashing algorithm is a function that computes data into a unique hash..
+                     -Mining is the process of finding the solution to the blockchain problem.
+                    NOdes get paid for mining blocks .
+                     -NODE refers to a single instance in a decentralized network.
+
+                     -A block is a list of transactions mined together.
+                     -Nonce is the 'Number used Once' to find the solution to the blockchain problem.
+                    -It is also used to define the transaction Number for an account / address.
+
+                    NOte that a private key is only known to the key holder, it is used to sign transactions
+
+                    NOTE::
+                    Public key is derived from your private key..Any one can see it to verify that a transaction came from you.
+                      
+                      QUICK EXPLANATION
+                      private key ||| > Public key > address
+                      
+                      secrete behind hashing
+                      ---------------------
+                      <secrete-key> + account-Number
+
+
+Find more on::
+   sybil resistance :
+                      PoW: Proof of Work :: takes a lot of energy.
+                      PoS: Proof of Stake   
+
+                      BLOCKCHAIN ATTACKS
+                     -Sybil Attacks :: when a user create anonymous accounts to increment a network.
+                     -51% Attacks :: find more about this..
+                     it is not easy to do PoW and PoS..
+                     PoW is so fantastic thoo it requires a lot of electricity
+
+**PoS nodes put up collateral as a sybil resistance mechanism
+ In this Stake, the miners are validators and nolonger miners..
+It uses less amount of energy.. it is very decentralized and more secure..
+
+NOTE::
+PoS and PoW are sybil resistance mechanism.. 
+the bigger the blockchain, the more secure..
+Consensus is how the blockchains decide what the state of the chain is..
+Sharding and rollups are scallability solutions..
+ONLY, so many transactions can fit in a block..
+Gas prices are how much it costs to perform executions on-chain..
+
+FIND MORE ON::
+-FUnction visibility
+
