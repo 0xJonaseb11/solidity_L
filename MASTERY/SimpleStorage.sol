@@ -1,5 +1,6 @@
-//SPDX-Licence-Identifier: MIT
-pragma solidity >=0.5.16 <=0.8.18;
+ // SPDX-Licence-Identifier: UNLICENCED
+pragma solidity ^0.8.18;
+
 
 contract SimpleStorage {
      uint256 public userFavoriteNumber; //when not assigned a value, it is initialised to zero
