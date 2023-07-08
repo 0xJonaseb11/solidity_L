@@ -1,90 +1,90 @@
+"::WE ARE ENGINEERS..WE WANNA WORK INCREDIBLY HARD TO BE INCREDIBLY LAZY.."
+
+
 SMART CONTRACTS:: Are a set of instructions executed in a decentralized way without the need for a centralized or third party intermediary ..
 
 FInd more on:: Oracle problem and oracle decentralization
 Note that most blockchains are compatible with ethereum
- 
+
 WEB1.0:: permissionless open sourced web with static content
 WEB2.0:: permissioned web with dynamic content, where companies run your agreements on their servers
 WEB3.0:: permissionless web with dynamic content where decentralized networks run your agreement.. it is generally accompanied by user owned ecosystems.. #uses own protocols
 
-A SMART CONTRACT is  an agreement or contract  or set of instructions that is deployed on a decentralized blockchain..
-   
-   Advgs of SMART CONTRACTS
-   -------------------------
-   -decentralized
-   -counterparty  risk removal
-   -cannot mererly be hacked
-   -security immutability
-   -speed and effecient
-   -transparent and flexibility
-   -trust minimized agreements
+A SMART CONTRACT is an agreement or contract or set of instructions that is deployed on a decentralized blockchain..
 
+Advgs of SMART CONTRACTS
+-------------------------
+-decentralized
+-counterparty risk removal
+-cannot mererly be hacked
+-security immutability
+-speed and effecient
+-transparent and flexibility
+-trust minimized agreements
 
-                   ACCRONYMS
-                ---------------
-                DEFI: DEcentralized FInance
-                DAOS::DEcentralized Autonomous Organisations.
-                NFTS::Non-fungible Tokens.
+ACCRONYMS
+---------------
+DEFI: DEcentralized FInance
+DAOS::DEcentralized Autonomous Organisations.
+NFTS::Non-fungible Tokens.
 
-                   ABOUT GAS
-                   -----------
-                   The more complex your blockchain is, the more gas you are charged and vice versa
-                   The more pple send transactions at the same time, the more gas costs are .
-                NOte that it is possible to set the limit of the gas that you want to spend across your transactions..
-             Base fee:: The minimum gas price to send your transaction.
-            Gas fee is paid by anyone that initialise a transaction.
+ABOUT GAS
+-----------
+The more complex your blockchain is, the more gas you are charged and vice versa
+The more pple send transactions at the same time, the more gas costs are .
+NOte that it is possible to set the limit of the gas that you want to spend across your transactions..
+Base fee:: The minimum gas price to send your transaction.
+Gas fee is paid by anyone that initialise a transaction.
 
 TRANSACTION FEE = GAS PRICE * GAS USED
 
 A HASH:: A unique fixed length string, meant to identify a piece of data. created by placing said data into a hash function
- 
- VISIT:: andersbrownworth.com
-      :: ethereum converter
 
+VISIT:: andersbrownworth.com
+:: ethereum converter
 
-                      BLOCKS
-                    ----------
-                    GENESIS BLOCK::This is the first block in a blockchain
+BLOCKS
+----------
+GENESIS BLOCK::This is the first block in a blockchain
 
-                     -A hashing algorithm is a function that computes data into a unique hash..
-                     -Mining is the process of finding the solution to the blockchain problem.
-                    NOdes get paid for mining blocks .
-                     -NODE refers to a single instance in a decentralized network.
+-A hashing algorithm is a function that computes data into a unique hash..
+-Mining is the process of finding the solution to the blockchain problem.
+NOdes get paid for mining blocks .
+-NODE refers to a single instance in a decentralized network.
 
-                     -A block is a list of transactions mined together.
-                     -Nonce is the 'Number used Once' to find the solution to the blockchain problem.
-                    -It is also used to define the transaction Number for an account / address.
+-A block is a list of transactions mined together.
+-Nonce is the 'Number used Once' to find the solution to the blockchain problem.
+-It is also used to define the transaction Number for an account / address.
 
-                    NOte that a private key is only known to the key holder, it is used to sign transactions
+NOte that a private key is only known to the key holder, it is used to sign transactions
 
-                    NOTE::
-                    Public key is derived from your private key..Any one can see it to verify that a transaction came from you.
-                      
-                      QUICK EXPLANATION
-                      private key ||| > Public key > address
-                      
-                      secrete behind hashing
-                      ---------------------
-                      <secrete-key> + account-Number
+NOTE::
+Public key is derived from your private key..Any one can see it to verify that a transaction came from you.
 
+QUICK EXPLANATION
+private key ||| > Public key > address
+
+secrete behind hashing
+---------------------
+<secrete-key> + account-Number
 
 Find more on::
-   sybil resistance :
-                      PoW: Proof of Work :: takes a lot of energy.
-                      PoS: Proof of Stake   
+sybil resistance :
+PoW: Proof of Work :: takes a lot of energy.
+PoS: Proof of Stake
 
-                      BLOCKCHAIN ATTACKS
-                     -Sybil Attacks :: when a user create anonymous accounts to increment a network.
-                     -51% Attacks :: find more about this..
-                     it is not easy to do PoW and PoS..
-                     PoW is so fantastic thoo it requires a lot of electricity
+BLOCKCHAIN ATTACKS
+-Sybil Attacks :: when a user create anonymous accounts to increment a network.
+-51% Attacks :: find more about this..
+it is not easy to do PoW and PoS..
+PoW is so fantastic thoo it requires a lot of electricity
 
 **PoS nodes put up collateral as a sybil resistance mechanism
- In this Stake, the miners are validators and nolonger miners..
+In this Stake, the miners are validators and nolonger miners..
 It uses less amount of energy.. it is very decentralized and more secure..
 
 NOTE::
-PoS and PoW are sybil resistance mechanism.. 
+PoS and PoW are sybil resistance mechanism..
 the bigger the blockchain, the more secure..
 Consensus is how the blockchains decide what the state of the chain is..
 Sharding and rollups are scallability solutions..
@@ -93,4 +93,90 @@ Gas prices are how much it costs to perform executions on-chain..
 
 FIND MORE ON::
 -FUnction visibility
+
+EVM OVERVIEW || Storage places
+------------------------------
+ -Stack
+ -memory
+ -Storage
+ -calldata
+ -code
+ -logs
+
+ when we use memory and calldata it means that a variable will exist for a short time: function call .
+a memory variable can be modeified while a calldata variable cannot be modeified .
+
+EVM:: Ethereum Virtual Machine
+ABI::Application Binary Interface
+
+WIth overridden functions, it is unresolved error with my solidity compiler which i have to resolve as soon as possible..
+with `new` keyword , we can deploy many contracts from other contracts..
+it is a good practice to use the destructuring form of importing contracts from files.. you look really good dev..
+With inheritance, to overrid a function, we need to add `Virtual` keyword to the parent function and override to the derived function..
+
+----------------------
+REVERTS
+--------
+=> They undo any actions that have been done, and send the remaining gas back..
+    with above example, if the amount of eth is less than requires, the transaction does revert 
+
+TRANSACTIONS -- value Transfer
+  -Nonce
+  -Gas price
+  -Gas limit
+  -To
+  -Value 
+  -Data 
+  V,r,s ::Components of tx signature
+
+  NOTE::
+  A blockchain oracle is any device that interacts eith off-chain world to provide with external data or computation to smart contracts..
+  centralized oracle are a point of failure. instead use decentralized oracles like: Chainlink
+
+  CHAINLINK FEATURES
+  ------------------
+   -Chainlink data feeds
+   -Chainlink VRF:: Chainlink Verifyable Randomness Function 
+   -Chainlink Keepers(reanamed to Chainlink automation)::decentralized event driven features 
+   -End-To-End Reliability::The Promise of Smart Contracts..
+
+   NOTE:: READ THE FULL DOCUMENTATION OF CHAINLINK..
+INorder for a function to receive any remarkable amount of ethereum, we need to mark it as payable..
+Interfaces help us to make api calls..
+
+
+*CONSTRUCTORS are used to provide only user the full ability to use a specific function in a contract to avoid unauthorized access::
+eg function withdraw() {} ::  CONSTRUCTORS help to avoid another user to use that function for an authorized actions..
+
+FIND MORE ON MODIIFERS::THE USE OF UNDERSCORE(positions)
+
+NOTE::With constant and immutable variables, less gas is used compared to non-constant variables..
+  -immutable variables are the variables that are declared and updated Once and use less gas
+     eg:: address[] public immutable i_owner;
+NOte::To optimize more gas , we can also use the custom error handling
+
+::Some code is not working, make sure to find the cause..
+
+WITH receive() and fallback() STRUCTURED EXAMPLE::
+ VISIT:: https://solidity-by-example.org/fallback/
+      :: speedrun.com
+
+          Ether is sent to contract
+      is msg.data empty ??
+            /      \        
+          yes      no
+           /         \
+        receive ??    fallback()
+          /    \
+        yes     no
+       /         \
+    receive()    fallback()
+
+    ---------------------------------
+TO ASK QUESTIONS AND ANSWERS ON WEB3::
+       -peeranha
+       -stack overflow
+
+
+
 
