@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT
-pragma solidity >=0.5.15<0.8.18;
+pragma solidity >=0.5.15 <0.8.18;
 
 contract Fallback {
     uint256 public result;
@@ -8,8 +8,7 @@ contract Fallback {
         result = 1;
     }
 
-    fallback() {
+    fallback() external {
         result = 2;
-
     }
 }

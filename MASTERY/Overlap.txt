@@ -1,6 +1,6 @@
 "::WE ARE ENGINEERS..WE WANNA WORK INCREDIBLY HARD TO BE INCREDIBLY LAZY.."
 
-github URL:: github.com/chainAccelorg/foundry-full-course-f23#
+github URL:: github.com/chainAccelorg/foundry-full-course-f23 #
 
 SMART CONTRACTS:: Are a set of instructions executed in a decentralized way without the need for a centralized or third party intermediary ..
 
@@ -97,14 +97,14 @@ FIND MORE ON::
 
 EVM OVERVIEW || Storage places
 ------------------------------
- -Stack
- -memory
- -Storage
- -calldata
- -code
- -logs
+-Stack
+-memory
+-Storage
+-calldata
+-code
+-logs
 
- when we use memory and calldata it means that a variable will exist for a short time: function call .
+when we use memory and calldata it means that a variable will exist for a short time: function call .
 a memory variable can be modeified while a calldata variable cannot be modeified .
 
 EVM:: Ethereum Virtual Machine
@@ -119,134 +119,133 @@ With inheritance, to overrid a function, we need to add `Virtual` keyword to the
 REVERTS
 --------
 => They undo any actions that have been done, and send the remaining gas back..
-    with above example, if the amount of eth is less than requires, the transaction does revert 
+with above example, if the amount of eth is less than requires, the transaction does revert
 
 TRANSACTIONS -- value Transfer
-  -Nonce
-  -Gas price
-  -Gas limit
-  -To
-  -Value 
-  -Data 
-  V,r,s ::Components of tx signature
+-Nonce
+-Gas price
+-Gas limit
+-To
+-Value
+-Data
+V,r,s ::Components of tx signature
 
-  NOTE::
-  A blockchain oracle is any device that interacts eith off-chain world to provide with external data or computation to smart contracts..
-  centralized oracle are a point of failure. instead use decentralized oracles like: Chainlink
+NOTE::
+A blockchain oracle is any device that interacts eith off-chain world to provide with external data or computation to smart contracts..
+centralized oracle are a point of failure. instead use decentralized oracles like: Chainlink
 
-  CHAINLINK FEATURES
-  ------------------
-   -Chainlink data feeds
-   -Chainlink VRF:: Chainlink Verifyable Randomness Function 
-   -Chainlink Keepers(reanamed to Chainlink automation)::decentralized event driven features 
-   -End-To-End Reliability::The Promise of Smart Contracts..
+CHAINLINK FEATURES
+------------------
+-Chainlink data feeds
+-Chainlink VRF:: Chainlink Verifyable Randomness Function
+-Chainlink Keepers(reanamed to Chainlink automation)::decentralized event driven features
+-End-To-End Reliability::The Promise of Smart Contracts..
 
-   NOTE:: READ THE FULL DOCUMENTATION OF CHAINLINK..
+NOTE:: READ THE FULL DOCUMENTATION OF CHAINLINK..
 INorder for a function to receive any remarkable amount of ethereum, we need to mark it as payable..
 Interfaces help us to make api calls..
 
-
 *CONSTRUCTORS are used to provide only user the full ability to use a specific function in a contract to avoid unauthorized access::
-eg function withdraw() {} ::  CONSTRUCTORS help to avoid another user to use that function for an authorized actions..
+eg function withdraw() {} :: CONSTRUCTORS help to avoid another user to use that function for an authorized actions..
 
 FIND MORE ON MODIIFERS::THE USE OF UNDERSCORE(positions)
 
 NOTE::With constant and immutable variables, less gas is used compared to non-constant variables..
-  -immutable variables are the variables that are declared and updated Once and use less gas
-     eg:: address[] public immutable i_owner;
+-immutable variables are the variables that are declared and updated Once and use less gas
+eg:: address[] public immutable i_owner                                                            ;
 NOte::To optimize more gas , we can also use the custom error handling
 
 ::Some code is not working, make sure to find the cause..
 
 WITH receive() and fallback() STRUCTURED EXAMPLE::
- VISIT:: https://solidity-by-example.org/fallback/
-      :: speedrun.com
+VISIT:: https://solidity-by-example.org/fallback/
+:: speedrun.com
 
-          Ether is sent to contract
-      is msg.data empty ??
-            /      \        
-          yes      no
-           /         \
-        receive ??    fallback()
-          /    \
-        yes     no
-       /         \
-    receive()    fallback()
+Ether is sent to contract
+is msg.data empty ??
+/ \
+yes no
+/ \
+receive ?? fallback()
+/ \
+yes no
+/ \
+receive() fallback()
 
-    ---------------------------------
+---------------------------------
 TO ASK QUESTIONS AND ANSWERS ON WEB3::
-       -peeranha
-       -stack overflow
+-peeranha
+-stack overflow
 
-TO INSTALL FOUNDRY:: 
-  curl -L https://foundry.paradigm.xyz | bash
-    -source/users/jaz/.bashrc  or follow what foundry tells you
-    -foundryup
+TO INSTALL FOUNDRY::
+curl -L https://foundry.paradigm.xyz | bash
+-source/users/jaz/.bashrc or follow what foundry tells you
+-foundryup
 
-  TOOLS FOR BLOCKCHAIN DEV::
-     -foundry
-     -hardhat 
+TOOLS FOR BLOCKCHAIN DEV::
+-foundry
+-hardhat
 
-     To start a new project::
-     ------------------------
-       -enter in its directory
-       -run :: forge init
-      To compile foundry project::
-      ----------------------------
-       -forge build || forge compile
+To start a new project::
+------------------------
+-enter in its directory
+-run :: forge init
+To compile foundry project::
+----------------------------
+-forge build || forge compile
 
-        Deploying the project like on ganache ::
-        -----------------------
-         run `anvil`  to see contract info ::addresses, private keys etc 
+Deploying the project like on ganache ::
+-----------------------
+run `anvil` to see contract info ::addresses, private keys etc
 
 NOTE that it is not advised to paste in the vscode terminal the private key, since fundsc may be lost..
 instead use the private keys from fake accounts of `ganache` or `anvil`..
 
- Then, you can use `history -c` to remove this history from the shell to avoid it to being seen by anyone..
+Then, you can use `history -c` to remove this history from the shell to avoid it to being seen by anyone..
 
-     WHILE USING script method to deploy a contract, we moe to the script folder and create a `deploy.s.sol` file that is used to deploy contracts using scripte..
-     Don't forget to copy SimpleStorage.sol from the initial part of the project(Mastery) to the src folder in the roo directory..
+WHILE USING script method to deploy a contract, we moe to the script folder and create a `deploy.s.sol` file that is used to deploy contracts using scripte..
+Don't forget to copy SimpleStorage.sol from the initial part of the project(Mastery) to the src folder in the roo directory..
 
-     NOte that the cheatcodes used in this foundry project are only applicable in foundry projects ..
-         ::Nonce increments every single time you send a transaction..
+NOte that the cheatcodes used in this foundry project are only applicable in foundry projects ..
+::Nonce increments every single time you send a transaction..
 
-     For development purposes, it is advisable to use a .env file where you put your sensitive information to avoid other people from accessing it ..
-     But note that it is only advisable for dev't purposes not actual transactions for real Contracts
-     The .env file is created in test directory.. and configured in .gitignore to avoid it from being pushed ..
-     -------------------------
-     .env configuration::
-     PRIVATE_KEY = ---
-     RPC_URL = ---
-     SEPOLIAPC_URL = ---
-     -------------------------
-     After, run :: source .env
-                :: echo $PRIVATE_KEY
-                :: echo $RPC_URL
+For development purposes, it is advisable to use a .env file where you put your sensitive information to avoid other people from accessing it ..
+But note that it is only advisable for dev't purposes not actual transactions for real Contracts
+The .env file is created in test directory.. and configured in .gitignore to avoid it from being pushed ..
+-------------------------
+.env configuration::
+PRIVATE_KEY = ---
+RPC_URL = ---
+SEPOLIAPC_URL = ---
+-------------------------
+After, run :: source .env
+:: echo $PRIVATE_KEY
+:: echo $RPC_URL
 
-    And the you can use the keywords defined in .env to deploy scripts as::
-     `forge script script/DeploySimpleStorage.s.sol --rpc-url $RPC_URL --broadcast --private-key $PRIVATE_KEY`
+And the you can use the keywords defined in .env to deploy scripts as::
+`forge script script/DeploySimpleStorage.s.sol --rpc-url $RPC_URL --broadcast --private-key $PRIVATE_KEY`
 
 -------------
 using a keystore:: it is a file that has your private key incrypted with your password to add more security..
 ------------
 
 In readme.md::
-   1.For the moment, a `PRIVATE_KEY` in my `.env` file.
-   1. So long as I don't expose the `.env` file.
-   2. But for real money, I won't do it . I will use `--interactive` or a keystore file with a password once foundry adds that..
+1.For the moment, a `PRIVATE_KEY` in my `.env` file.
+1. So long as I don't expose the `.env` file.
+2. But for real money, I won't do it . I will use `--interactive` or a keystore file with a password once foundry adds that..
 
-   VISIT::portal.thirdweb.com/deploy == read the docs..
-        ::Discord=> discord.gg/thirdweb
-        ::Alchemy.com > docs
-        ::mempool
+VISIT::portal.thirdweb.com/deploy == read the docs..
+::Discord=> discord.gg/thirdweb
+::Alchemy.com > docs
+::mempool
 
-        FIND MORE ON :: -cast > methods
-                        -broadcast
-                        -
-                WTIH PROJECT CLEANINING, WE CAN FORMAT OUR CODE MANUALLY IN ORDER TO BE SEEN CLEAN BY OTHER VIWERS::
-                   -run:: forge fmt
-                Please mind to add a README.md file:: it is a good practice
-                EXTENSIONS TO INSTALL::
-                                       -gitpod
-                                       -markdown
-                To preview your markdown, press:: ctrl + shift + v   
+FIND MORE ON :: -cast > methods
+-broadcast
+-
+WTIH PROJECT CLEANINING, WE CAN FORMAT OUR CODE MANUALLY IN ORDER TO BE SEEN CLEAN BY OTHER VIWERS::
+-run:: forge fmt
+Please mind to add a README.md file:: it is a good practice
+EXTENSIONS TO INSTALL::
+-gitpod
+-markdown
+To preview your markdown, press:: ctrl + shift + v
