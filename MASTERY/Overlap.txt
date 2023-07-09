@@ -1,5 +1,6 @@
 "::WE ARE ENGINEERS..WE WANNA WORK INCREDIBLY HARD TO BE INCREDIBLY LAZY.."
 
+github URL:: github.com/chainAccelorg/foundry-full-course-f23#
 
 SMART CONTRACTS:: Are a set of instructions executed in a decentralized way without the need for a centralized or third party intermediary ..
 
@@ -177,6 +178,75 @@ TO ASK QUESTIONS AND ANSWERS ON WEB3::
        -peeranha
        -stack overflow
 
+TO INSTALL FOUNDRY:: 
+  curl -L https://foundry.paradigm.xyz | bash
+    -source/users/jaz/.bashrc  or follow what foundry tells you
+    -foundryup
 
+  TOOLS FOR BLOCKCHAIN DEV::
+     -foundry
+     -hardhat 
 
+     To start a new project::
+     ------------------------
+       -enter in its directory
+       -run :: forge init
+      To compile foundry project::
+      ----------------------------
+       -forge build || forge compile
 
+        Deploying the project like on ganache ::
+        -----------------------
+         run `anvil`  to see contract info ::addresses, private keys etc 
+
+NOTE that it is not advised to paste in the vscode terminal the private key, since fundsc may be lost..
+instead use the private keys from fake accounts of `ganache` or `anvil`..
+
+ Then, you can use `history -c` to remove this history from the shell to avoid it to being seen by anyone..
+
+     WHILE USING script method to deploy a contract, we moe to the script folder and create a `deploy.s.sol` file that is used to deploy contracts using scripte..
+     Don't forget to copy SimpleStorage.sol from the initial part of the project(Mastery) to the src folder in the roo directory..
+
+     NOte that the cheatcodes used in this foundry project are only applicable in foundry projects ..
+         ::Nonce increments every single time you send a transaction..
+
+     For development purposes, it is advisable to use a .env file where you put your sensitive information to avoid other people from accessing it ..
+     But note that it is only advisable for dev't purposes not actual transactions for real Contracts
+     The .env file is created in test directory.. and configured in .gitignore to avoid it from being pushed ..
+     -------------------------
+     .env configuration::
+     PRIVATE_KEY = ---
+     RPC_URL = ---
+     SEPOLIAPC_URL = ---
+     -------------------------
+     After, run :: source .env
+                :: echo $PRIVATE_KEY
+                :: echo $RPC_URL
+
+    And the you can use the keywords defined in .env to deploy scripts as::
+     `forge script script/DeploySimpleStorage.s.sol --rpc-url $RPC_URL --broadcast --private-key $PRIVATE_KEY`
+
+-------------
+using a keystore:: it is a file that has your private key incrypted with your password to add more security..
+------------
+
+In readme.md::
+   1.For the moment, a `PRIVATE_KEY` in my `.env` file.
+   1. So long as I don't expose the `.env` file.
+   2. But for real money, I won't do it . I will use `--interactive` or a keystore file with a password once foundry adds that..
+
+   VISIT::portal.thirdweb.com/deploy == read the docs..
+        ::Discord=> discord.gg/thirdweb
+        ::Alchemy.com > docs
+        ::mempool
+
+        FIND MORE ON :: -cast > methods
+                        -broadcast
+                        -
+                WTIH PROJECT CLEANINING, WE CAN FORMAT OUR CODE MANUALLY IN ORDER TO BE SEEN CLEAN BY OTHER VIWERS::
+                   -run:: forge fmt
+                Please mind to add a README.md file:: it is a good practice
+                EXTENSIONS TO INSTALL::
+                                       -gitpod
+                                       -markdown
+                To preview your markdown, press:: ctrl + shift + v   

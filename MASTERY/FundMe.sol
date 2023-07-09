@@ -52,8 +52,7 @@ contract FundMe {
     uint256 constant MINIMUM_USD = 50e18; //5ETH .. With constants
 
     address[] public funders;
-    mapping(address /**funder */ => uint256 /**amountFunded*/)
-        public addressToAmountFunded;
+    mapping(address /**funder */ => uint256 /**amountFunded*/) public addressToAmountFunded;
 
     address public owner;
 
@@ -157,3 +156,5 @@ contract FundMe {
     //     fund();
     //    }
 }
+
+
