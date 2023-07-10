@@ -1,0 +1,1 @@
+[{"inputs":[],"name":"IS_SCRIPT","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"run","outputs":[{"internalType":"contract SimpleStorage","name":"","type":"address"}],"stateMutability":"nonpayable","type":"function"}]

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity >=0.5.15 <0.8.18;
+pragma solidity ^0.8.18;
 
 contract SimpleStorage {
     uint256 public userFavoriteNumber; //when not assigned a value, it is initialised to zero

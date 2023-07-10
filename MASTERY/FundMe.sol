@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT
-pragma solidity >=0.5.15 <0.8.18;
+pragma solidity ^0.8.18;
 
 //Get funds from users
 //withdraw funds
@@ -60,7 +60,7 @@ contract FundMe {
     //with immutability::
     // address public immutable i_owner;
 
-    constructor() public {
+    constructor() {
         owner = msg.sender;
     }
 
