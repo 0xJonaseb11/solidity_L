@@ -1,0 +1,3 @@
+[submodule "MASTERY/foundry-f23/foundry-erc20-f23/lib/forge-std"]
+	path = MASTERY/foundry-f23/foundry-erc20-f23/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
