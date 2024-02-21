@@ -1,12 +1,12 @@
- Author: @Jonas-sebera
+# Solidity_L
 
- ----
+ _**Author: @Jaz-3-0**_
 
 SOLIDITY Learn | Beginner To Expert
 
 ## About
 
-Getting wet with Solidity language for Etherum Smart contracts
+Getting dirty with Solidity Programming language for Etherum Smart contracts
 
 ## Gettin Started
 
@@ -23,4 +23,4 @@ Getting wet with Solidity language for Etherum Smart contracts
 
 ----
 
-@Jonas-sebera
+@Jaz-3-0
