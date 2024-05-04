@@ -1,7 +1,5 @@
 # Solidity_L
 
- _**Author: @Jaz-3-0**_
-
 SOLIDITY Learn | Beginner To Expert
 
 ## About
@@ -23,4 +21,4 @@ Getting dirty with Solidity Programming language for Etherum Smart contracts
 
 ----
 
-@Jaz-3-0
+@0xJonaseb11
