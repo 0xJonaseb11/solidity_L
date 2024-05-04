@@ -202,4 +202,63 @@ contract MyContract {
 
 }
 
+/// Checked and unchecked arithmetic
 
+contract checkedUncheckedTests {
+    function checkedAdd() public pure returns(uint256) {
+            return type(uint256).max + 1; // reverts
+    }
+
+    function checkedSub() public pure returns(uint256) {
+            return type(uint256).min - 1; //reverts
+    }
+
+    function uncheckedAdd() public pure returns(uint256) {
+        // doesn't revert but overflows and returns 0
+        unchecked {
+            return type(uint256).max + 1;
+        }
+    }
+
+    function uncheckedSub() public pure returns(uint256) {
+        unchecked {
+            return type(uint256).min - 1;
+        }
+    }
+
+    // Custom types 
+    // Dixed point
+
+    type FixedPoint is uint256;
+
+    library FixedPointMath {
+        
+        uint256 constant MULTIPLIER = 10 ** 18;
+        
+        function add(FixedPoint a, FixedPoint b) internal pure returns(UFixed256x18) {
+            return FixedPoint.wrap(FixedPoint.unwrap(a) + FixedPoint.unwrap(b));
+        }
+
+        function mul(FixedPoint a, uint256 b) internal pure returns(FixedPoint) {
+            return FixedPoint.wrap(FixedPoint.unwrap(a) * b);
+        }
+
+        function mulFixedPoint(uint256 number, FixedPoint fixedPoint) internal pure returns(uint256) {
+            return (number * FixedPoint.unwrap(fixedPoint)) / MULTIPLIER;
+        }
+
+        function divFixedPoint(uint256 number, FixedPoint fixedPoint) internal pure returns(uint256) {
+            return (number * MULTIPLIER) / Wad.unwrap(fixedPoint);
+        }
+
+        function fromFraction(uint256 numerator, uint256 denominator) internal pure returns(FixedPoint) {
+            if (numerator == 0) {
+                return FixedPoint.wrap(0);
+            }
+
+            return FixedPoint.wrap(numerator * MULTIPLIER) / denominator;
+        }
+    }
+
+        
+}
