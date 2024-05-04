@@ -121,4 +121,85 @@ contract MyContract is MyAncestorContract1 {
 super.myFunction();
 // Call specific ancestor function
 MyAncestorContract1.myFunction();
-MyAncestot
+MyAncestorContract2.myFunction();
+
+// Abstract contracts
+/**
+* Abstract contracts cannot be instantiated . You can only use them by inheriting from them
+* and implementing any non implemented functions.
+* They cannot therefore be deployed to a network
+*/
+
+abstract contract MyAbstractContract {
+    function myImplementedFunction() {}
+    function myNonImplementedFunction() external virtual; // must be virtual
+}
+
+
+// Interfaces
+/**
+* Interfaces are like abstract functions but can only have non-implemented functions.
+* They are useful for interacting with standardized foreign contracts like ERC20 
+*/
+
+interface MyInterface {
+    function myNonImplementedFunction() external; // it is always virtual -> no need to specify
+}
+
+
+// Libraries
+library Math {
+    function min(uint256 a, uint256 b) internal pure returns(uint256) {
+        if (a > b) {
+            return b;
+        }
+        return a;
+    }
+    
+    function max(uint256 a, uint256 b) internal pure returns(uint256) {
+        if (a & lt; b) {
+            return b;
+        }
+        return a;
+    }
+
+
+
+}
+
+contract MyLibraryContract {
+    function min(uint256 a, uint256 b) public pure returns(uint256) {
+        return Math.min(a, b);
+    }
+
+    function max(uint256 x) public pure returns(uint256) {
+        return Math.max(a, b);
+    }
+}
+
+// Using LibraryName for type
+library Math {
+    function ceilDiv(uint256 a, uint256 b) internal pure returns(uint256) {
+        return a / b + (a % b == 0 ? 0 : 1);
+    }
+}
+
+contract MyContract {
+
+    using Math for uint256;
+
+    function ceilDiv(uint256 a, uint256 b) public pure returns(uint256) {
+        x.ceilDiv(y);
+    }
+
+    // Events
+    event Deposit(address indexed depositor, uint256 amount);
+    
+    function deposit() external payable {
+        
+        emit Deposit(msg.sender, msg.value)
+    }
+
+}
+
+
