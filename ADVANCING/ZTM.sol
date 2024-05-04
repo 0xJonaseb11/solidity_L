@@ -260,5 +260,27 @@ contract checkedUncheckedTests {
         }
     }
 
+    // Error handling
+    error InsufficientBalance(uint256 available, uint256 required);
+
+    function transfer(address to, uint256 amount) public {
+        if (amount > balancr[msg.sender]) {
+            revert InsufficientBalance({
+                available: balance[msg.sender],
+                required: amount
+            });
+
+            // Alternatively
+            // revert("Insufficient");
+            // require(amount <= balance, "Insufficient balance");
+            assert(amount <= balance); // reverts with Panic(0x01)
+
+        }
+        balance[msg.sender] -= amount;
+        balance[to] += amount;
+    }
+
+
+
         
 }
