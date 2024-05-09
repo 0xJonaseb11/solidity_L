@@ -69,7 +69,7 @@ contract ProposalContract {
 
     function vote(uint8 choice) external {
         Proposal storage proposal = proposal_history[counter];
-        uint256 total_vote = proposal.approve + proposal.reject + proposal.pass;
+        // uint256 total_vote = proposal.approve + proposal.reject + proposal.pass;
         votedAddresses.push(msg.sender);
 
          // validate with values[1, 2, 0]
