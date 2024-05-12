@@ -6,6 +6,8 @@ contract Example {
     string public message;
     bytes1 a = 0x12;
     bytes2 b = 0x1224;
+    uint[] numArray = [1,2,3,4,5];
+
 
 
 
@@ -87,6 +89,27 @@ contract Example {
      This is because the compiler will permit you to compile & will also permit the (possible) loss 
      of information, due to you wanting it explicitly.
     */
+
+    // Arrays
+
+    function arrayLength() public view returns(uint) {
+        return numArray.length;
+    }
+
+    function getElementByIndex(uint i) public view returns(uint) {
+        return numArray[i];
+    }
+
+    function pushArrray(uint n) public {
+        numArray.push(n);
+    }
+
+    function popValue() public {
+        numArray.pop();
+    }
+
+    
+
 
     
 
