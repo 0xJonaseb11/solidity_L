@@ -135,6 +135,36 @@ contract Example {
 
     }
 
+    // Enums
+    enum PlayerLevel {
+        Beginner,
+        Intermediate,
+        Advanced
+    }
+
+    PlayerLevel public level;
+
+    enum Status { // Values are stored as 0, 2,3 and 3 respectively
+        Ordered,
+        Shipped,
+        Delivered,
+        Cancelled
+    }
+
+    Status public status,
+
+    function setStatus(Status _status) public {
+        status = _status;
+    }
+
+    function getStatus() public view returns(Status) {
+        return status;
+    }
+
+
+
+
+
 
     
 
