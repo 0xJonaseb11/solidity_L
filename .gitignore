@@ -11,3 +11,6 @@ node_modules
 
 # github
 .github
+
+# .env
+.env
