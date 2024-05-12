@@ -108,6 +108,33 @@ contract Example {
         numArray.pop();
     }
 
+    // Structs
+    struct Student {
+        string name;
+        uint roll_num;
+        bool qualified;
+    }
+
+    Student public student;
+    Student[] public students;
+
+    function addStudent(string calldata _name, uint rollNum, bool _qualified) public {
+        students.push(Student(_name, rollNum, _qualified));
+    }
+
+    // Alternatively, er can add a student as follows
+    function pushStudent(string calldata __name, uint _roll_num, bool __qualified) public {
+        Student memory student;
+
+        student.name = __name;
+        student.roll_num = _roll_num;
+        student.qualified = __qualified;
+
+        students.push(student);
+
+    }
+
+
     
 
 
