@@ -124,7 +124,8 @@ contract Example {
 
     // Alternatively, er can add a student as follows
     function pushStudent(string calldata __name, uint _roll_num, bool __qualified) public {
-        Student memory student;
+      
+        // Student memory students; // shadows above declaration
 
         student.name = __name;
         student.roll_num = _roll_num;
