@@ -161,6 +161,17 @@ contract Example {
         return status;
     }
 
+    // Mappings
+    mappping(address => uint256) public balances;
+
+    function setBalance(address _address, uint256 _balance) public {
+        balances[_addrss] = _balance;
+    }
+
+    function getBalance(address _address) public view returns(uint256) {
+        return balances[_address];
+    }
+
 
 
 
