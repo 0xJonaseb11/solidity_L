@@ -1,0 +1,13 @@
+# compiler files
+cache
+out
+build
+
+# tests
+coverage
+
+# node_modules
+node_modules
+
+# github
+.github
