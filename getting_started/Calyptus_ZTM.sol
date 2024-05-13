@@ -172,6 +172,32 @@ contract Example {
         return balances[_address];
     }
 
+    // Pure and view
+    uint256 public x;
+    function update() public {
+        x = 100;
+    }
+
+    function viewer() public view returns(uint256) {
+        return x;
+    }
+
+    function pureAdd() public pure returns(uint256) {
+        return(20 + 1);
+    }
+
+    // Error handling
+    // assert => for conditions that will never be false
+    uint num1 = 1;
+    uint num2 = 4;
+    function assertCheck() public view returns(uint) {
+        uint num3 = num1 + num2;
+        assert(num3 == 5);
+        return num3;
+    }
+
+    
+
 
 
 
