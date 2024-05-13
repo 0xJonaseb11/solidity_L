@@ -215,6 +215,19 @@ contract Example {
     function getPrice() public view returns(uint256) {
         return price;
     }
+    
+    // Events
+    mapping(uint => uint) public priceByProduct;
+    
+    function addProduct(uint256 _productID, uint256 _price) public {
+        priceByProduct[_productID] = _price;
+    }
+
+    event ProductAdded(uint256 productID, uint256 price);
+
+    function eventedAddProduct(uint256 __productId, uint256 __price) public {
+        emit(__productId, __price);
+    }
 
 
 
