@@ -207,9 +207,13 @@ contract Example {
         owner = msg.sender;
     }
 
-    function changePrice() public {
+    function changePrice(uint256 __price) public {
         require(msg.sender == owner, "Only owner can access this function");
-        price = _
+        price = __price;
+    }
+
+    function getPrice() public view returns(uint256) {
+        return price;
     }
 
 
