@@ -196,7 +196,21 @@ contract Example {
         return num3;
     }
 
-    
+    // constructors
+    // Initializing contract - state variables && more
+
+    uint256 public price;
+    address public owner;
+
+    constructor (uint256 _proce) {
+        price = _price;
+        owner = msg.sender;
+    }
+
+    function changePrice() public {
+        require(msg.sender == owner, "Only owner can access this function");
+        price = _
+    }
 
 
 
