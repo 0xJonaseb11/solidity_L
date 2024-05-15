@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const sender_pvt_key = process.env.PRIVATE_KEY;
 const receiver_address = "0xcfdEf8165d722DC56a1FD06923de261B5B9d8626";
-const amount = 0.5;
+const amount = "0.5";
 
 let provider = ethers.getDefaultProvider("sepolia");
 
