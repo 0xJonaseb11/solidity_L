@@ -34,10 +34,7 @@ contract Payable {
         */
 
         // use call to safely 
-        (bool sent, ) = owner.call{value: address(this).balance}("");
-        require(sent, "Send failed");
-
-
+        (bool success, ) = owner.call{value: address(this).balance}("");
+        require(success, "Send failed");
     }
-
 }
