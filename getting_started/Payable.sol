@@ -37,4 +37,11 @@ contract Payable {
         (bool success, ) = owner.call{value: address(this).balance}("");
         require(success, "Send failed");
     }
+
+    // gas fees - factors
+    /**
+    * Complexity of transaction (gas unit)
+   * Demand for making transactions (gas price)
+   * Price of Ether (to calculate dollar value) 
+   */
 }
