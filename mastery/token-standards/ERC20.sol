@@ -17,6 +17,7 @@ contract MyToken is ERC20 {
     function burn(uint _qty) public {
         _burn(msg.sender, _qty);
     }
-
     
+
+
 }
