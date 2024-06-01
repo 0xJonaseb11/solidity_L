@@ -17,13 +17,13 @@ const main = async() => {
 
   console.log("Counter contract deployed to:", counter.address);
 
-  const MyContractABI =
+  const CounterContractABI =
  require("../artifacts/contracts/Counter.sol/Counter.json");
-const MyContractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const CounterContractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
-const MyContract = await ethers.getContractAtFromArtifact(
-  MyContractABI,
-  MyContractAddress
+const CounterContract = await ethers.getContractAtFromArtifact(
+  CounterContractABI,
+  CounterContractAddress
 );
 
 }
