@@ -1,5 +1,4 @@
 const hre = require("hardhat");
-const ethers = hre.ethers;
 
 const main = async() => {
   const signers = await ethers.getSigners();
@@ -8,8 +7,8 @@ const main = async() => {
     "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
   );
 
-  const Counter = ethers.getContractFactory("Counter");
-  const counter = Counter.deploy();
+  const Counter = await hre.ethers.getContractFactory("Counter");
+  const counter = await Counter.deploy();
 
   console.log("Deploying Counter contract...")
 
