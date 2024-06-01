@@ -37,8 +37,10 @@ const contract = new ethers.Contract(contract_address, contract_ABI, provider);
 async function interact() {
  const value = await contract.variable();
  console.log("Previous value:", value);
+
  const contractWithSigner = contract.connect(sender_wallet);
  const tx = await contractWithSigner.decrement();
+ 
  await tx.wait();
  console.log("Tx Hash: ", tx.hash);
  const newValue = await contract.variable();
